@@ -12,6 +12,7 @@ function IconAnimated({ icon }) {
 
   useEffect(() => {
     lottie.loadAnimation({
+      name: `animation${icon}`,
       container: container.current,
       renderer: "svg",
       loop: false,
@@ -20,9 +21,8 @@ function IconAnimated({ icon }) {
     });
   }, []);
   const handleClick = () => {
-    lottie.stop();
-    lottie.play();
-    console.log(lottie);
+    lottie.stop(`animation${icon}`);
+    lottie.play(`animation${icon}`);
   };
 
   return (

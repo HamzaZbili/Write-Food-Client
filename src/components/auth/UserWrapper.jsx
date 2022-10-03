@@ -15,7 +15,6 @@ const UserWrapper = ({ children }) => {
       try {
         const user = await service.isLoggedIn();
         setAuth({ currentUser: user, isLoading: false, isLoggedIn: true });
-        console.log(user);
       } catch (error) {
         setAuth({ currentUser: null, isLoading: false, isLoggedIn: false });
       }

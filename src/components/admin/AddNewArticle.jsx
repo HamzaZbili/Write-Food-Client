@@ -19,6 +19,11 @@ const fields = [
     fieldName: "publicationDate",
     type: "date",
   },
+  {
+    label: "content",
+    fieldName: "content",
+    type: "textarea",
+  },
 ];
 
 // image: String,
@@ -31,7 +36,7 @@ const AddNewArticle = () => {
     city: "",
     publicationDate: "",
     content: "",
-    publisher: "",
+    publisher: "publisher",
     category: [],
   });
   const [file, setFile] = useState(null);
@@ -57,18 +62,48 @@ const AddNewArticle = () => {
   return (
     <form>
       {fields.map((fieldInfo, key) => {
+        console.log(fieldInfo.type);
         return (
           <div key={key}>
             <Input
+              id={fieldInfo.fieldName}
               className={fieldInfo.fieldName}
               {...fieldInfo}
               key={key}
               formData={formData}
               setFormData={setFormData}
+              type={fieldInfo.type}
             />
           </div>
         );
       })}
+      <label htmlFor="publisher">Publisher</label>
+      <select
+        name="publisher"
+        id="publisher"
+        onChange={(e) =>
+          setFormData({ ...formData, [e.target.name]: e.target.value })
+        }
+        required
+      >
+        <option value="Dishcult">Dishcult</option>
+        <option value="HiP PARIS">HiP PARIS</option>
+        <option value="">other</option>
+      </select>
+      {formData.publisher === "" && (
+        <div>
+          <label htmlFor="other">other</label>
+          <input
+            onChange={(e) =>
+              setFormData({ ...formData, [e.target.name]: e.target.value })
+            }
+            value={formData.password}
+            type="text"
+            id="publisher"
+            name="publisher"
+          />
+        </div>
+      )}
       {error && <h5 className="error">{error}</h5>}
     </form>
   );

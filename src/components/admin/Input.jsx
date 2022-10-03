@@ -12,9 +12,7 @@ const Input = ({
 }) => {
   return (
     <>
-      <label htmlFor={id} className="newEateryFormInput">
-        {label}:
-      </label>
+      <label htmlFor={id}>{label}:</label>
       <input
         {...otherProps}
         type={type}

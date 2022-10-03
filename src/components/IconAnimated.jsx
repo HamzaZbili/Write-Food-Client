@@ -1,13 +1,22 @@
 import React, { useEffect, useRef } from "react";
 import lottie from "lottie-web";
 import "./iconAnimated.css";
+import { useNavigate } from "react-router-dom";
 
 function IconAnimated({ icon }) {
   const container = useRef(null);
 
+  const openInNewTab = (url) => {
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
+
   const icons = [
     { logo: require("../icons/instagram.json") },
     { logo: require("../icons/linkedin.json") },
+  ];
+  const links = [
+    "https://www.instagram.com/writefood/",
+    "https://www.linkedin.com/in/rachel-naismith/",
   ];
 
   useEffect(() => {
@@ -23,6 +32,9 @@ function IconAnimated({ icon }) {
   const handleClick = () => {
     lottie.stop(`animation${icon}`);
     lottie.play(`animation${icon}`);
+    setTimeout(() => {
+      openInNewTab(links[icon]);
+    }, 1000);
   };
 
   return (

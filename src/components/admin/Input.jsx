@@ -19,7 +19,7 @@ const Input = ({
         name={fieldName}
         id={id}
         value={formData[fieldName]}
-        checked={formData[fieldName]}
+        // checked={formData[fieldName]}
         placeholder={placeholder}
         onChange={(event) =>
           setFormData({

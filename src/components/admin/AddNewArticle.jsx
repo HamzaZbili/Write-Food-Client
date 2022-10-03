@@ -20,24 +20,54 @@ const fields = [
     type: "date",
   },
   {
-    label: "content",
-    fieldName: "content",
-    type: "textarea",
+    label: "Link",
+    fieldName: "link",
+    type: "text",
+  },
+  {
+    label: "food",
+    fieldName: "food",
+    type: "checkbox",
+  },
+  {
+    label: "lifestyle",
+    fieldName: "lifestyle",
+    type: "checkbox",
+  },
+  {
+    label: "guide",
+    fieldName: "guide",
+    type: "checkbox",
+  },
+  {
+    label: "review",
+    fieldName: "review",
+    type: "checkbox",
+  },
+  {
+    label: "recipes",
+    fieldName: "recipes",
+    type: "checkbox",
   },
 ];
 
+const categories = ["food", "lifestyle", "guide", "review", "recipes"];
+
 // image: String,
-// publisher: String,
-// category: [String],
 
 const AddNewArticle = () => {
   const [formData, setFormData] = useState({
     title: "",
     city: "",
     publicationDate: "",
-    content: "",
     publisher: "publisher",
-    category: [],
+    other: "",
+    food: false,
+    lifestyle: false,
+    guide: false,
+    review: false,
+    recipes: false,
+    link: "",
   });
   const [file, setFile] = useState(null);
   const [error, setError] = useState(null);
@@ -46,30 +76,29 @@ const AddNewArticle = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const data = new FormData();
-      for (const key in formData) {
-        data.append(key, formData[key]);
-      }
-      data.append("photo", file);
-      const newEatery = await service
-        .post(`/eateries/my/new`, data)
-        .then(navigate("/eateries/my"));
+      // const data = new FormData();
+      // for (const key in formData) {
+      //   data.append(key, formData[key]);
+      // }
+      // data.append("photo", file);
+      const newArticle = await service
+        .post(`/articles/new`, formData)
+        .then(navigate("/new"));
+      console.log(newArticle);
     } catch (error) {
       setError(error.response.data.message);
     }
   };
 
   return (
-    <form>
+    <form onSubmit={handleSubmit} id="postArticleForm">
       {fields.map((fieldInfo, key) => {
-        console.log(fieldInfo.type);
         return (
           <div key={key}>
             <Input
               id={fieldInfo.fieldName}
               className={fieldInfo.fieldName}
               {...fieldInfo}
-              key={key}
               formData={formData}
               setFormData={setFormData}
               type={fieldInfo.type}
@@ -97,13 +126,14 @@ const AddNewArticle = () => {
             onChange={(e) =>
               setFormData({ ...formData, [e.target.name]: e.target.value })
             }
-            value={formData.password}
+            value={formData.other}
             type="text"
-            id="publisher"
-            name="publisher"
+            id="other"
+            name="other"
           />
         </div>
       )}
+      <input type="submit" value="post article" id="submitArticleButton" />
       {error && <h5 className="error">{error}</h5>}
     </form>
   );

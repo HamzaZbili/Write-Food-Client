@@ -1,17 +1,18 @@
 import { Routes, Route } from "react-router-dom";
 import React from "react";
 import HomePage from "./components/HomePage";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import Oops from "./components/oops";
+import Layout from "./components/Layout";
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<Layout />}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="*" element={<Oops />} />
+        </Route>
       </Routes>
-      <Footer />
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import "./navbar.css";
 
 function Navbar() {
@@ -11,7 +12,10 @@ function Navbar() {
 
   return (
     <header>
-      <h2>RACHEL NAISMITH</h2>
+      <Link to="/" id="titleLogo">
+        <h2>RACHEL NAISMITH</h2>
+      </Link>
+
       <nav ref={navRef}>
         <a href="/#">Home</a>
         <a href="/#">My work</a>

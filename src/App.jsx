@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 import React from "react";
-import HomePage from "./components/HomePage";
-import Oops from "./components/oops";
-import Layout from "./components/Layout";
+import HomePage from "./components/global/HomePage";
+import Oops from "./components/global/oops";
+import Layout from "./components/global/Layout";
 import Signin from "./components/admin/SignIn";
-import PrivateRoute from "./components/admin/PrivateRoute";
+import PrivateRoute from "./components/auth/PrivateRoute";
 import AddNewArticle from "./components/admin/AddNewArticle";
 
 function App() {

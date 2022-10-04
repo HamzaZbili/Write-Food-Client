@@ -49,11 +49,12 @@ const fields = [
     fieldName: "recipes",
     type: "checkbox",
   },
+  {
+    label: "seasonal",
+    fieldName: "seasonal",
+    type: "checkbox",
+  },
 ];
-
-const categories = ["food", "lifestyle", "guide", "review", "recipes"];
-
-// image: String,
 
 const AddNewArticle = () => {
   const [formData, setFormData] = useState({
@@ -62,12 +63,14 @@ const AddNewArticle = () => {
     publicationDate: "",
     publisher: "publisher",
     other: "",
+    link: "",
+    // categories
     food: false,
     lifestyle: false,
     guide: false,
     review: false,
     recipes: false,
-    link: "",
+    seasonal: false,
   });
   const [file, setFile] = useState(null);
   const [error, setError] = useState(null);
@@ -76,22 +79,22 @@ const AddNewArticle = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      // const data = new FormData();
-      // for (const key in formData) {
-      //   data.append(key, formData[key]);
-      // }
-      // data.append("photo", file);
+      const data = new FormData();
+      for (const key in formData) {
+        data.append(key, formData[key]);
+      }
+      data.append("image", file);
       const newArticle = await service
-        .post(`/articles/new`, formData)
-        .then(navigate("/new"));
+        .post(`/articles/new`, data)
+        .then(navigate("/"));
       console.log(newArticle);
     } catch (error) {
       setError(error.response.data.message);
     }
   };
-
   return (
     <form onSubmit={handleSubmit} id="postArticleForm">
+      <h1>testing</h1>
       {fields.map((fieldInfo, key) => {
         return (
           <div key={key}>
@@ -133,6 +136,19 @@ const AddNewArticle = () => {
           />
         </div>
       )}
+      <p>article image</p>
+      <input
+        onChange={(e) => {
+          // setFormData({ ...formData, [e.target.name]: e.target.value });
+          setFile(e.target.files[0]);
+        }}
+        value={formData.image}
+        type="file"
+        id="image"
+        name="image"
+        accept="png jpeg"
+        required
+      />
       <input type="submit" value="post article" id="submitArticleButton" />
       {error && <h5 className="error">{error}</h5>}
     </form>

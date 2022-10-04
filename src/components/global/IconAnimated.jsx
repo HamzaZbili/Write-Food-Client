@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import lottie from "lottie-web";
 import "./iconAnimated.css";
-import { useNavigate } from "react-router-dom";
 
 function IconAnimated({ icon }) {
   const container = useRef(null);
@@ -11,8 +10,8 @@ function IconAnimated({ icon }) {
   };
 
   const icons = [
-    { logo: require("../icons/instagram.json") },
-    { logo: require("../icons/linkedin.json") },
+    { logo: require("../../icons/instagram.json") },
+    { logo: require("../../icons/linkedin.json") },
   ];
   const links = [
     "https://www.instagram.com/writefood/",
@@ -39,7 +38,7 @@ function IconAnimated({ icon }) {
 
   return (
     <>
-      <div className="container" ref={container} onClick={handleClick} />
+      <div className="iconContainer" ref={container} onClick={handleClick} />
     </>
   );
 }

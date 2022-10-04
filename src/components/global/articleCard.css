@@ -1,0 +1,21 @@
+.articleCard {
+    height: 18rem;
+    width: 20rem;
+    margin: 1rem;
+    border-radius: 5px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.articleInfo {
+    background-color: white;
+    border-radius: 5px;
+    width: 18rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: .5rem;;
+}

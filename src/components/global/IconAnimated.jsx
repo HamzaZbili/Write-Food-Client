@@ -38,7 +38,7 @@ function IconAnimated({ icon }) {
 
   return (
     <>
-      <div className="iconContainer" ref={container} onClick={handleClick} />
+      <div id="iconContainer" ref={container} onClick={handleClick} />
     </>
   );
 }

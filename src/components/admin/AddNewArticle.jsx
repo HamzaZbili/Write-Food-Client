@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import service from "../auth/service";
 import Input from "./Input";
+import "./addNewArticle.css";
 
 const fields = [
   {
@@ -15,7 +16,7 @@ const fields = [
     type: "text",
   },
   {
-    label: "Publish Date",
+    label: "Publication date",
     fieldName: "publicationDate",
     type: "date",
   },
@@ -93,26 +94,26 @@ const AddNewArticle = () => {
     }
   };
   return (
-    <form onSubmit={handleSubmit} id="postArticleForm">
-      <h1>testing</h1>
+    <form onSubmit={handleSubmit} id="addNewArticleForm">
+      <h1>new article</h1>
       {fields.map((fieldInfo, key) => {
         return (
-          <div key={key}>
-            <Input
-              id={fieldInfo.fieldName}
-              className={fieldInfo.fieldName}
-              {...fieldInfo}
-              formData={formData}
-              setFormData={setFormData}
-              type={fieldInfo.type}
-            />
-          </div>
+          <Input
+            key={key}
+            id={fieldInfo.fieldName}
+            className="newArticleInputField"
+            {...fieldInfo}
+            formData={formData}
+            setFormData={setFormData}
+            type={fieldInfo.type}
+          />
         );
       })}
       <label htmlFor="publisher">Publisher</label>
       <select
         name="publisher"
         id="publisher"
+        className="newArticleInputField"
         onChange={(e) =>
           setFormData({ ...formData, [e.target.name]: e.target.value })
         }
@@ -122,6 +123,7 @@ const AddNewArticle = () => {
         <option value="HiP PARIS">HiP PARIS</option>
         <option value="">other</option>
       </select>
+
       {formData.publisher === "" && (
         <div>
           <label htmlFor="other">other</label>
@@ -136,7 +138,7 @@ const AddNewArticle = () => {
           />
         </div>
       )}
-      <p>article image</p>
+      <p>article image:</p>
       <input
         onChange={(e) => {
           // setFormData({ ...formData, [e.target.name]: e.target.value });

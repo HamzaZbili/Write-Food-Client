@@ -30,7 +30,9 @@ const HomeFeed = () => {
       {loadMore?.map((article) => {
         return <ArticleCard article={article} key={article._id} />;
       })}
-      <button onClick={handleClick}>more...</button>
+      <button className="loadMoreButton" onClick={handleClick}>
+        more
+      </button>
     </div>
   );
 };

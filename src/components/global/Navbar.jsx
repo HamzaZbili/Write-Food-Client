@@ -23,10 +23,18 @@ function Navbar() {
         >
           <FaTimes />
         </button>
-        <a href="/#">Home</a>
-        <a href="/#">My Work</a>
-        <a href="/#">About me</a>
-        <a href="/#">Contact</a>
+        <a onClick={showNavbar} href="/#">
+          Home
+        </a>
+        <a onClick={showNavbar} href="/#">
+          My Work
+        </a>
+        <a onClick={showNavbar} href="/#">
+          About me
+        </a>
+        <a onClick={showNavbar} href="/#">
+          Contact
+        </a>
       </nav>
       <button id="navBars" className="nav-btn" onClick={showNavbar}>
         <FaBars />

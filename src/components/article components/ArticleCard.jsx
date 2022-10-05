@@ -1,8 +1,8 @@
 import React from "react";
 import "./articleCard.css";
 
-const ArticleCard = ({ article }) => {
-  const { title, image, link, publicationDate, publisher } = article;
+const ArticleCard = ({ article, updateListedArticles }) => {
+  const { title, image, link, publicationDate, publisher, other } = article;
 
   const openInNewTab = (url) => {
     window.open(url, "_blank", "noopener,noreferrer");
@@ -21,7 +21,7 @@ const ArticleCard = ({ article }) => {
         <h2>{title}</h2>
         <div>
           <h4>
-            {publicationDate.slice(0, 10)}|{publisher}
+            {publicationDate.slice(0, 10)}|{publisher ? publisher : other}
           </h4>
         </div>
       </div>

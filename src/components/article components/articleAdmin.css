@@ -1,0 +1,10 @@
+.articleAdmin {
+    border: 1px solid grey;
+    margin: 1rem;
+    padding: .4rem;
+    display: flex;
+    justify-content: space-between;
+}
+.articleAdmin h5{
+    padding-left: .5rem;
+}

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import service from "../auth/service";
-import Input from "./Input";
+import Input from "../admin/Input";
 import "./addNewArticle.css";
 
 const fields = [

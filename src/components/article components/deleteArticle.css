@@ -1,0 +1,15 @@
+.deleteArticleButton {
+    background-color: red;
+    color: white;
+    height: 2.2rem;
+    width: 4rem;
+    padding-top: .3rem;
+    text-align: center;
+    margin: 1rem .7rem 0 0;
+}
+
+.deleteArticleButton:hover {
+    background-color: white;
+    color: red;
+    border: 1px solid red;
+}

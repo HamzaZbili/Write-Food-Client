@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import service from "../auth/service";
-import ArticleCard from "./ArticleCard";
+import ArticleCard from "../article components/ArticleCard";
 import "./homeFeed.css";
 
 const HomeFeed = () => {

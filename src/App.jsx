@@ -1,11 +1,12 @@
 import { Routes, Route } from "react-router-dom";
 import React from "react";
-import HomePage from "./components/global/HomePage";
+import HomePage from "./components/pages/HomePage";
 import Oops from "./components/global/oops";
 import Layout from "./components/global/Layout";
 import Signin from "./components/admin/SignIn";
 import PrivateRoute from "./components/auth/PrivateRoute";
-import AddNewArticle from "./components/admin/AddNewArticle";
+import AddNewArticle from "./components/article components/AddNewArticle";
+import ManageArticles from "./components/pages/ManageArticles";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/backdoor" element={<Signin />} />
           <Route element={<PrivateRoute />}>
             <Route path="/new" element={<AddNewArticle />} />
+            <Route path="/manage" element={<ManageArticles />} />
           </Route>
           <Route path="*" element={<Oops />} />
         </Route>

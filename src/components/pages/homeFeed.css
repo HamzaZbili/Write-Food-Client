@@ -4,9 +4,9 @@
     align-items: center;
 }
 .loadMoreButton {
-    width: 6rem;
-    height: 3rem;
-    background-color: rgb(237, 98, 221);
+    width: 5rem;
+    height: 2.4rem;
+    background-color: orange;
     color: white;
     font-size: 1.4rem;
     border: none;
@@ -14,6 +14,6 @@
 
 .loadMoreButton:hover {
     background-color: white;
-    color: black;
-    border: 1px solid black;
+    color: orange;
+    border: 1px solid orange;
 }

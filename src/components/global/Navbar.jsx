@@ -1,9 +1,11 @@
 import { useRef } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import useAuth from "../auth/useAuth";
 import "./navbar.css";
 
 function Navbar() {
+  const { isLoggedIn, currentUser } = useAuth();
   const navRef = useRef();
 
   const showNavbar = () => {
@@ -26,6 +28,11 @@ function Navbar() {
         <a onClick={showNavbar} href="/#">
           Home
         </a>
+        {isLoggedIn && (
+          <a onClick={showNavbar} href="/manage">
+            Admin
+          </a>
+        )}
         <a onClick={showNavbar} href="/#">
           My Work
         </a>

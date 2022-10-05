@@ -15,17 +15,20 @@ function Navbar() {
       <Link to="/" id="titleLogo">
         <h2>RACHEL NAISMITH</h2>
       </Link>
-
       <nav ref={navRef}>
-        <a href="/#">Home</a>
-        <a href="/#">My work</a>
-        <a href="/#">Blog</a>
-        <a href="/#">About me</a>
-        <button className="nav-btn nav-close-btn" onClick={showNavbar}>
+        <button
+          id="navClose"
+          className="nav-close-btn nav-btn"
+          onClick={showNavbar}
+        >
           <FaTimes />
         </button>
+        <a href="/#">Home</a>
+        <a href="/#">My Work</a>
+        <a href="/#">About me</a>
+        <a href="/#">Contact</a>
       </nav>
-      <button className="nav-btn" onClick={showNavbar}>
+      <button id="navBars" className="nav-btn" onClick={showNavbar}>
         <FaBars />
       </button>
     </header>

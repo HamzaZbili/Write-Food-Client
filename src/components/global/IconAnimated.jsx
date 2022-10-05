@@ -33,7 +33,7 @@ function IconAnimated({ icon }) {
     lottie.play(`animation${icon}`);
     setTimeout(() => {
       openInNewTab(links[icon]);
-    }, 1000);
+    }, 800);
   };
 
   return (

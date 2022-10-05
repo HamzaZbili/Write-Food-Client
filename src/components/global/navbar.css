@@ -10,7 +10,7 @@
 :root {
 	--mainColor: white;
 	--mainColorLight: White;
-	--secondaryColor: #db2b39;
+	--secondaryColor: #ff00e1;
 	--textColor: black;
 }
 
@@ -75,9 +75,9 @@ nav {
 		justify-content: center;
 		gap: 1.5rem;
 		background-color: var(--mainColor);
-		transition: .25s;
+		transition: .5s;
 		transform: scale(0);
-        opacity: .5;
+        opacity: 0;
 		z-index: 1;
 	}
 	nav .nav-close-btn {
@@ -88,9 +88,11 @@ nav {
 
 	nav a {
 		font-size: 1.5rem;
-        transition: 1.5s;
         transform: scale(0);
         opacity: 0;
+	}
+	nav a:hover {
+		color: var(--secondaryColor);
 	}
 
     header .responsive_nav {
@@ -100,5 +102,6 @@ nav {
     header .responsive_nav a{
 		transform: none;
         opacity: 1;
+	
 	}
 }

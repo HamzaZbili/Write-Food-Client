@@ -5,6 +5,8 @@ import "./homeFeed.css";
 
 const HomeFeed = () => {
   const [allArticles, setAllArticles] = useState([]);
+  const [alreadyLoaded, setAlreadyLoaded] = useState(3);
+  const [loadMore, setLoadMore] = useState([]);
 
   useEffect(() => {
     service.get("/articles").then((response) => {
@@ -12,11 +14,23 @@ const HomeFeed = () => {
     });
   }, []);
 
+  const handleClick = () => {
+    service.get(`/articles/more/${alreadyLoaded}`).then((response) => {
+      console.log(response.data);
+      setLoadMore([...loadMore, ...response.data]);
+      setAlreadyLoaded(alreadyLoaded + 3);
+    });
+  };
+
   return (
     <div className="homeFeed">
       {allArticles?.map((article) => {
         return <ArticleCard article={article} key={article._id} />;
       })}
+      {loadMore?.map((article) => {
+        return <ArticleCard article={article} key={article._id} />;
+      })}
+      <button onClick={handleClick}>more...</button>
     </div>
   );
 };

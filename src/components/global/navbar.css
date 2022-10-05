@@ -95,6 +95,10 @@ nav {
 		color: var(--secondaryColor);
 	}
 
+	header .nav-btn:hover {
+		color:#ff00e1;
+	}
+
     header .responsive_nav {
 		transform: none;
         opacity: 1;

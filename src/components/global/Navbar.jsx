@@ -3,13 +3,16 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import useAuth from "../auth/useAuth";
 import "./navbar.css";
+import DropDownMenu from "./DropDownMenu";
 
 function Navbar() {
-  const { isLoggedIn, currentUser } = useAuth();
+  const { isLoggedIn } = useAuth();
   const navRef = useRef();
 
   const showNavbar = () => {
-    navRef.current.classList.toggle("responsive_nav");
+    setTimeout(() => {
+      navRef.current.classList.toggle("responsive_nav");
+    }, 100);
   };
 
   return (
@@ -33,9 +36,7 @@ function Navbar() {
             Admin
           </a>
         )}
-        <a onClick={showNavbar} href="/#">
-          My Work
-        </a>
+        <DropDownMenu />
         <a onClick={showNavbar} href="/#">
           About me
         </a>

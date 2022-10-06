@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import service from "../auth/service";
-import Input from "../admin/Input";
+import Input from "./Input";
 import "./addNewArticle.css";
 
 const fields = [
@@ -121,6 +121,7 @@ const AddNewArticle = () => {
       >
         <option value="Dishcult">Dishcult</option>
         <option value="HiP PARIS">HiP PARIS</option>
+        <option value="Palate">Palate</option>
         <option value="">other</option>
       </select>
 

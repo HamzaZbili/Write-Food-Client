@@ -1,6 +1,6 @@
 import React from "react";
 import "./articleAdmin.css";
-import DeleteArticle from "./DeleteArticle";
+import DeleteArticle from "../forms/DeleteArticle";
 
 const ArticleAdmin = ({ article, updateListedArticles }) => {
   const { _id, title, city, publisher, other, link, publicationDate } = article;
@@ -14,7 +14,7 @@ const ArticleAdmin = ({ article, updateListedArticles }) => {
 
   return (
     <div className="articleAdmin">
-      <div>
+      <div className="articleAdminInfo">
         <h5 onClick={handleClick}>{title}</h5>
         <p>
           {publisher ? publisher : other}|{city}

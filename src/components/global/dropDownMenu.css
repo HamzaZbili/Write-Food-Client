@@ -1,0 +1,34 @@
+.myWorkLink:hover {
+	fill: #ff00e1;
+}
+
+.myWorkLink {
+	cursor: pointer;
+}
+
+.myWorkLink svg{
+	height: 1.5rem;
+	position: relative;
+	margin: .5rem;
+}
+
+.animateDownArrow {
+	transform: scaleY(-1);
+}
+
+.menuOptionsContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.menuOptions a {
+    font-size: 1.2rem;
+}
+
+.menuOptions:hover {
+    color: #ff00e1;
+}
+
+.showOption {
+    display: none;
+}

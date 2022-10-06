@@ -1,7 +1,7 @@
 import React from "react";
 import "./articleCard.css";
 
-const ArticleCard = ({ article, updateListedArticles }) => {
+const ArticleCard = ({ article }) => {
   const { title, image, link, publicationDate, publisher, other } = article;
 
   const openInNewTab = (url) => {

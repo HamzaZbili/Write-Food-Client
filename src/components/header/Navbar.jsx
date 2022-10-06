@@ -12,7 +12,7 @@ function Navbar() {
   const showNavbar = () => {
     setTimeout(() => {
       navRef.current.classList.toggle("responsive_nav");
-    }, 100);
+    }, 110);
   };
 
   return (
@@ -37,10 +37,10 @@ function Navbar() {
           </a>
         )}
         <DropDownMenu />
-        <a onClick={showNavbar} href="/#">
+        <a onClick={showNavbar} href="/aboutme">
           About me
         </a>
-        <a onClick={showNavbar} href="/#">
+        <a onClick={showNavbar} href="/contact">
           Contact
         </a>
       </nav>

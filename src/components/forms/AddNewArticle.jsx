@@ -26,11 +26,6 @@ const fields = [
     type: "text",
   },
   {
-    label: "food",
-    fieldName: "food",
-    type: "checkbox",
-  },
-  {
     label: "lifestyle",
     fieldName: "lifestyle",
     type: "checkbox",
@@ -46,8 +41,8 @@ const fields = [
     type: "checkbox",
   },
   {
-    label: "recipes",
-    fieldName: "recipes",
+    label: "recipe",
+    fieldName: "recipe",
     type: "checkbox",
   },
   {
@@ -66,11 +61,10 @@ const AddNewArticle = () => {
     other: "",
     link: "",
     // categories
-    food: false,
     lifestyle: false,
     guide: false,
     review: false,
-    recipes: false,
+    recipe: false,
     seasonal: false,
   });
   const [file, setFile] = useState(null);

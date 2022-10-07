@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import service from "../auth/service";
@@ -14,10 +15,10 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await service.signup(user);
+      const newUser = await service.signup(user);
       navigate("/");
     } catch (error) {
-      setError(error.response.data.message);
+      setError(error.response);
     }
   };
   return (
@@ -36,7 +37,7 @@ const SignUp = () => {
           value={user.username}
         />
         <label htmlFor="email" className="authLabel">
-          password
+          email
         </label>
         <input
           type="text"
@@ -62,7 +63,7 @@ const SignUp = () => {
         />
 
         {error && <h5 className="error">{error}</h5>}
-        <button className="authButton">sign up</button>
+        <input type="submit" value="sign in" id="authButton" />
       </form>
     </>
   );

@@ -29,7 +29,7 @@ service.signin = async (user) => {
   }
 };
 
-service.signin = async (user) => {
+service.signup = async (user) => {
   try {
     const { data } = await service.post("/auth/signup", user);
     return data;

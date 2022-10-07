@@ -53,7 +53,7 @@ const SignIn = () => {
           value={user.password}
         />
         {error && <h5 className="error">{error}</h5>}
-        <button className="authButton">sign in</button>
+        <input type="submit" value="sign up" id="authButton" />
       </form>
     </>
   );

@@ -13,14 +13,14 @@
     outline: none;
     background-color: rgb(255, 237, 254);
 }
-.authButton {
+#authButton {
     margin-top: 1rem;
     background-color:green;
     color:white;
     font-size: 1.3rem;
     border: 0;
 }
-.authButton:hover {
+#authButton:hover {
     background-color:white;
     color:green;
     border: 1px solid green;

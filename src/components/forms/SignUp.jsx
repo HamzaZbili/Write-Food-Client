@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import service from "../auth/service";
 
 const SignUp = () => {
   const [user, setUser] = useState({

@@ -19,7 +19,7 @@ const SignIn = () => {
       const res = await service.signin(user);
       storeToken(res);
       await authenticateUser();
-      navigate("/");
+      navigate("/manage");
     } catch (error) {
       setError(error.response.data.message);
     }
@@ -53,7 +53,7 @@ const SignIn = () => {
           value={user.password}
         />
         {error && <h5 className="error">{error}</h5>}
-        <input type="submit" value="sign up" id="authButton" />
+        <input type="submit" value="sign in" id="authButton" />
       </form>
     </>
   );

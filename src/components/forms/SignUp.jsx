@@ -16,9 +16,9 @@ const SignUp = () => {
     e.preventDefault();
     try {
       const newUser = await service.signup(user);
-      navigate("/");
+      navigate("/manage");
     } catch (error) {
-      setError(error.response);
+      setError(error.response.message);
     }
   };
   return (
@@ -63,7 +63,7 @@ const SignUp = () => {
         />
 
         {error && <h5 className="error">{error}</h5>}
-        <input type="submit" value="sign in" id="authButton" />
+        <input type="submit" value="sign up" id="authButton" />
       </form>
     </>
   );

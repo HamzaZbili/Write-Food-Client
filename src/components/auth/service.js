@@ -29,6 +29,15 @@ service.signin = async (user) => {
   }
 };
 
+service.signin = async (user) => {
+  try {
+    const { data } = await service.post("/auth/signup", user);
+    return data;
+  } catch (error) {
+    errorHandler(error);
+  }
+};
+
 function errorHandler(error) {
   if (error.response.data) {
     console.log(error.response && error.response.data);

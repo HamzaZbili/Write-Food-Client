@@ -10,6 +10,7 @@ import ManageArticles from "./components/pages/ManageArticles";
 import SearchResult from "./components/pages/SearchResult";
 import AboutMe from "./components/pages/AboutMe";
 import Contact from "./components/pages/Contact";
+import SignUp from "./components/forms/SignUp";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/aboutme" element={<AboutMe />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/backdoor" element={<Signin />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route element={<PrivateRoute />}>
             <Route path="/new" element={<AddNewArticle />} />
             <Route path="/manage" element={<ManageArticles />} />

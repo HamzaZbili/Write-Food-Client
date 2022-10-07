@@ -6,6 +6,7 @@
     padding-top: .3rem;
     text-align: center;
     margin: 1rem .7rem 0 0;
+    cursor: pointer;
 }
 
 .deleteArticleButton:hover {

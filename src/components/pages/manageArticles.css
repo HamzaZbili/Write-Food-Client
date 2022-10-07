@@ -5,7 +5,8 @@
     background-color: orange;
     border: none;
     color: white;
-    font-size: 1.2rem
+    font-size: 1.2rem;
+    cursor: pointer;
 }
 .postNewArticle:hover {
     color:orange;

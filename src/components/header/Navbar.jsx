@@ -2,8 +2,8 @@ import { useRef } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import useAuth from "../auth/useAuth";
-import "./navbar.css";
 import DropDownMenu from "./DropDownMenu";
+import "./navbar.css";
 
 function Navbar() {
   const { isLoggedIn } = useAuth();
@@ -12,7 +12,7 @@ function Navbar() {
   const showNavbar = () => {
     setTimeout(() => {
       navRef.current.classList.toggle("responsive_nav");
-    }, 110);
+    }, 120);
   };
 
   return (

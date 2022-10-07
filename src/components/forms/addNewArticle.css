@@ -70,6 +70,7 @@
     align-self: center;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
 }
 #submitArticleButton:hover {
     background-color: white;

@@ -14,8 +14,8 @@ const ArticleAdmin = ({ article, updateListedArticles }) => {
 
   return (
     <div className="articleAdmin">
-      <div className="articleAdminInfo">
-        <h5 onClick={handleClick}>{title}</h5>
+      <div onClick={handleClick} className="articleAdminInfo">
+        <h5>{title}</h5>
         <p>
           {publisher ? publisher : other}|{city}
         </p>

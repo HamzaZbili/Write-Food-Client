@@ -2,6 +2,19 @@
     width: 100vw;
 }
 
-.bio {
-    padding: 1rem;
+.homePage {
+    display: flex;
+    flex-direction: column;
+}
+.homePageImageContainer img{
+    object-fit: cover;
+    object-position:top;
+    overflow: hidden;
+    height: 20rem;
+}
+
+@media only screen and (max-width: 1024px) {
+    .homePageImageContainer img{
+    height: 30rem;
+    }
 }

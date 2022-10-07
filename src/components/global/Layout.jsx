@@ -9,6 +9,7 @@ const Layout = () => {
     <div id="layout">
       <Navbar />
       <Outlet />
+      <div className="footerPadding"></div>
       <Footer />
     </div>
   );

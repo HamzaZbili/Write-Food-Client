@@ -81,8 +81,7 @@ const AddNewArticle = () => {
       data.append("image", file);
       const newArticle = await service
         .post(`/articles/new`, data)
-        .then(navigate("/"));
-      console.log(newArticle);
+        .then(navigate("/manage"));
     } catch (error) {
       setError(error.response.data.message);
     }

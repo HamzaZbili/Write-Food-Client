@@ -6,7 +6,7 @@ import DropDownMenu from "./DropDownMenu";
 import "./navbar.css";
 
 function Navbar() {
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn, removeUser } = useAuth();
   const navRef = useRef();
 
   const showNavbar = () => {
@@ -32,9 +32,14 @@ function Navbar() {
           Home
         </a>
         {isLoggedIn && (
-          <a onClick={showNavbar} href="/manage">
-            Admin
-          </a>
+          <>
+            <a onClick={showNavbar} href="/manage">
+              Admin
+            </a>
+            <a onClick={removeUser} href="/backdoor">
+              Logout
+            </a>
+          </>
         )}
         <DropDownMenu />
         <a onClick={showNavbar} href="/aboutme">

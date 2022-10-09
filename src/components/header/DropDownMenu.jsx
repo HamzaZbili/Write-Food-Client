@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import "./dropDownMenu.css";
 import { ReactComponent as DownArrow } from "../icons/downArrow.svg";
+import { Link } from "react-router-dom";
 
 const dropDownOptions = [
   { title: "lifestyle" },
@@ -30,9 +31,9 @@ const DropDownMenu = () => {
             {dropDownOptions.map((category) => {
               const { title } = category;
               return (
-                <a key={title} href={`/search/${title}`}>
+                <Link key={title} to={`/search/${title}`}>
                   {title}
-                </a>
+                </Link>
               );
             })}
           </div>

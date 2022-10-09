@@ -17,9 +17,9 @@ function Navbar() {
 
   return (
     <header>
-      <a href="/" id="titleLogo">
+      <Link to="/" id="titleLogo">
         <h2>RACHEL NAISMITH</h2>
-      </a>
+      </Link>
       <nav ref={navRef}>
         <button
           id="navClose"
@@ -28,26 +28,26 @@ function Navbar() {
         >
           <FaTimes />
         </button>
-        <a onClick={showNavbar} href="/#">
+        <Link to="/" onClick={showNavbar}>
           Home
-        </a>
+        </Link>
+        <DropDownMenu />
+        <Link to="/aboutme" onClick={showNavbar}>
+          About me
+        </Link>
+        <Link to="/contact" onClick={showNavbar}>
+          Contact
+        </Link>
         {isLoggedIn && (
           <>
-            <a onClick={showNavbar} href="/manage">
+            <Link to="/manage" onClick={showNavbar}>
               Admin
-            </a>
-            <a onClick={removeUser} href="/backdoor">
+            </Link>
+            <Link to="/backdoor" onClick={removeUser}>
               Logout
-            </a>
+            </Link>
           </>
         )}
-        <DropDownMenu />
-        <a onClick={showNavbar} href="/aboutme">
-          About me
-        </a>
-        <a onClick={showNavbar} href="/contact">
-          Contact
-        </a>
       </nav>
       <button id="navBars" className="nav-btn" onClick={showNavbar}>
         <FaBars />

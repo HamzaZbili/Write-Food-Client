@@ -1,20 +1,20 @@
-.rachelInParis {
+.croissants {
     width: 100vw;
 }
 
 .homePage {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 .homePageImageContainer img{
     object-fit: cover;
-    object-position:top;
     overflow: hidden;
-    height: 20rem;
+    height: 25rem;
 }
 
 @media only screen and (max-width: 1024px) {
     .homePageImageContainer img{
-    height: 30rem;
+    height:30em;
     }
 }

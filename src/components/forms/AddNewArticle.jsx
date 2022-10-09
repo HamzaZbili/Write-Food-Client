@@ -83,7 +83,7 @@ const AddNewArticle = () => {
         .post(`/articles/new`, data)
         .then(navigate("/manage"));
     } catch (error) {
-      setError(error.response.data.message);
+      setError(error.response);
     }
   };
   return (

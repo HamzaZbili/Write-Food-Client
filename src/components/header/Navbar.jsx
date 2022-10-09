@@ -17,9 +17,9 @@ function Navbar() {
 
   return (
     <header>
-      <Link to="/" id="titleLogo">
+      <a href="/" id="titleLogo">
         <h2>RACHEL NAISMITH</h2>
-      </Link>
+      </a>
       <nav ref={navRef}>
         <button
           id="navClose"

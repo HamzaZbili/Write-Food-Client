@@ -4,12 +4,14 @@
 
 .myWorkLink {
 	cursor: pointer;
+	display: flex;
+	align-items: center;
+	margin-right: 0;
 }
 
 .myWorkLink svg{
 	height: 1rem;
-	position: relative;
-	margin: .7rem;
+	margin-left: .7rem;
 }
 
 .animateDownArrow {
@@ -18,20 +20,49 @@
 
 .menuBoxContainer {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 .menuOptionsContainer {
-	padding-top: 1rem;
+	background-color: white;
+	padding: 1rem .5rem .5rem .5rem;
 	display: flex;
-    flex-direction: column;
+    flex-direction: row;
+	position: absolute;
+	top: 3rem;
+	left: 45%;
+	border-radius: 10px;
 }
 
 .menuOptionsContainer a {
 	font-size: 1.2rem;
 	cursor: pointer;
+	font-size: 1rem;
 }
 
 .showOptions {
     display:none;
+}
+@media only screen and (max-width: 900px) {
+	.menuOptionsContainer {
+left: 38%;
+	}
+}
+
+@media only screen and (max-width: 700px) {
+	.menuBoxContainer {
+		display: flex;
+		flex-direction: column;
+	}
+	.menuOptionsContainer {
+		background-color: white;
+		padding: 0;
+		padding-top: .8rem;
+		display: flex;
+		flex-direction: column;
+		position: static;
+	}
+	.showOptions {
+		display:none;
+	}
 }

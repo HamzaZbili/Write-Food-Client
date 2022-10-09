@@ -1,7 +1,13 @@
+#homeFeedContainer {
+    display: flex;
+    justify-content: center;
+}
+
 .homeFeed {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    justify-content: left;
+    flex-wrap: wrap;
 }
 .loadMoreButton {
     width: 5rem;
@@ -19,3 +25,11 @@
     color: orange;
     border: 1px solid orange;
 }
+@media only screen and (max-width: 700px) {
+    .homeFeed {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+

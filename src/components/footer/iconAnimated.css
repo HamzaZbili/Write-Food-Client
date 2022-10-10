@@ -1,6 +1,7 @@
-.iconContainer {
-    padding: .5rem;
-}
+
+
+
+
 #iconContainer {
     width: 2.5%;
     margin-right: 1rem;
@@ -9,6 +10,6 @@
 
 @media only screen and (max-width: 1024px) {
     #iconContainer {
-        width: 8%;
+        width: 6%;
     }
 }

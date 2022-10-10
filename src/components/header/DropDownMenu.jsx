@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./dropDownMenu.css";
 import { ReactComponent as DownArrow } from "../icons/downArrow.svg";
 import { Link } from "react-router-dom";
@@ -11,29 +11,40 @@ const dropDownOptions = [
   { title: "seasonal" },
 ];
 
-const DropDownMenu = () => {
+const DropDownMenu = ({ showNavbar }) => {
   const downArrowRef = useRef();
+  const menuBox = useRef();
   const menuOption = useRef();
 
   const dropDownMenu = () => {
     downArrowRef.current.classList.toggle("animateDownArrow");
-    menuOption.current.classList.toggle("showOptions");
+    menuOption.current.classList.toggle("hideMenu");
   };
 
+  useEffect(() => {
+    document.addEventListener("mousedown", (event) => {
+      if (!menuBox.current.contains(event.target)) {
+        menuOption.current.classList.add("hideMenu");
+      }
+    });
+  }, []);
+
   return (
-    <div className="menuBoxContainer">
+    <div ref={menuBox} className="menuBoxContainer">
       <a className="myWorkLink" onClick={dropDownMenu}>
         My Work <DownArrow ref={downArrowRef} />
       </a>
       {
         <>
-          <div className={"showOptions menuOptionsContainer"} ref={menuOption}>
+          <div className={"hideMenu menuOptionsContainer"} ref={menuOption}>
             {dropDownOptions.map((category) => {
               const { title } = category;
               return (
-                <Link key={title} to={`/search/${title}`}>
-                  {title}
-                </Link>
+                <div onClick={showNavbar} key={title}>
+                  <Link onClick={dropDownMenu} to={`/search/${title}`}>
+                    {title}
+                  </Link>
+                </div>
               );
             })}
           </div>

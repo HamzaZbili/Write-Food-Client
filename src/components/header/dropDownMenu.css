@@ -32,6 +32,9 @@
 	top: 3rem;
 	left: 45%;
 	border-radius: 10px;
+	opacity: 1;
+	z-index: 1;
+	transition: .25s;
 }
 
 .menuOptionsContainer a {
@@ -40,8 +43,12 @@
 	font-size: 1rem;
 }
 
-.showOptions {
-    display:none;
+.hideMenu {
+	transition: .25s;
+    opacity: 0;
+	top: 2rem;
+	z-index: -1;
+	position: absolute;
 }
 @media only screen and (max-width: 900px) {
 	.menuOptionsContainer {
@@ -58,11 +65,18 @@ left: 38%;
 		background-color: white;
 		padding: 0;
 		padding-top: .8rem;
+		height: 8rem;
+		transform: scaleY(1);
+		opacity: 1;
 		display: flex;
 		flex-direction: column;
 		position: static;
 	}
-	.showOptions {
-		display:none;
+	.hideMenu {
+		height: 0rem;
+		margin: 0;
+		padding: 0;
+		transform: scaleY(0);
+		opacity: 0;
 	}
 }

@@ -1,13 +1,8 @@
-#homeFeedContainer {
-    display: flex;
-    justify-content: center;
-}
-
 .homeFeed {
     display: flex;
     flex-direction: row;
-    justify-content: left;
     flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 .loadMoreButton {
     width: 5rem;
@@ -20,11 +15,21 @@
     cursor: pointer;
 }
 
+#homeFeedContainer {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+
+}
+
 .loadMoreButton:hover {
     background-color: white;
     color: orange;
     border: 1px solid orange;
 }
+
 @media only screen and (max-width: 700px) {
     .homeFeed {
         display: flex;

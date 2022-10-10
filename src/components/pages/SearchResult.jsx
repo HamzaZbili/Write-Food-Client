@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import ArticleCard from "../article components/ArticleCard";
 import service from "../auth/service";
+import "../article components/homeFeed.css";
 import "./searchResult.css";
 
 const SearchResult = () => {
@@ -13,14 +14,17 @@ const SearchResult = () => {
     service.get(`/articles/${search}`).then((response) => {
       setArticlesResult(response.data);
     });
-  }, []);
+  }, [search]);
+
   return (
     <>
       <h3 className="searchHeading">{search.toLocaleUpperCase()}</h3>
-      {articlesResult &&
-        articlesResult.map((article) => {
-          return <ArticleCard key={article._id} article={article} />;
-        })}
+      <div className="homeFeed">
+        {articlesResult &&
+          articlesResult.map((article) => {
+            return <ArticleCard key={article._id} article={article} />;
+          })}
+      </div>
     </>
   );
 };

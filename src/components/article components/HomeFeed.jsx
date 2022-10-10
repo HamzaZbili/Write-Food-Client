@@ -16,7 +16,6 @@ const HomeFeed = () => {
 
   const handleClick = () => {
     service.get(`/articles/more/${alreadyLoaded}`).then((response) => {
-      console.log(response.data);
       setLoadMore([...loadMore, ...response.data]);
       setAlreadyLoaded(alreadyLoaded + 3);
     });

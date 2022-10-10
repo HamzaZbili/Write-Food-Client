@@ -1,3 +1,4 @@
+import { useCallback } from "react";
 import { useRef } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -9,17 +10,17 @@ function Navbar() {
   const { isLoggedIn, removeUser } = useAuth();
   const navRef = useRef();
 
-  const showNavbar = () => {
+  const showNavbar = useCallback(() => {
     setTimeout(() => {
       navRef.current.classList.toggle("responsive_nav");
     }, 120);
-  };
+  });
 
   return (
     <header>
-      <Link to="/" id="titleLogo">
+      <a href="/" id="titleLogo">
         <h2>RACHEL NAISMITH</h2>
-      </Link>
+      </a>
       <nav ref={navRef}>
         <button
           id="navClose"
@@ -31,7 +32,7 @@ function Navbar() {
         <Link to="/" onClick={showNavbar}>
           Home
         </Link>
-        <DropDownMenu />
+        <DropDownMenu showNavbar={showNavbar} />
         <Link to="/aboutme" onClick={showNavbar}>
           About me
         </Link>

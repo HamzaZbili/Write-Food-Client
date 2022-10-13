@@ -18,7 +18,7 @@ const SearchResult = () => {
 
   return (
     <>
-      <h3 className="searchHeading">{search.toLocaleUpperCase()}</h3>
+      <h3 id="searchHeading">{search.toLocaleUpperCase()}</h3>
       <div className="homeFeed">
         {articlesResult &&
           articlesResult.map((article) => {

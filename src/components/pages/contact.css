@@ -1,0 +1,18 @@
+.pastaImageContainer {
+    object-fit: cover;
+    overflow: hidden;
+    height: 18rem;
+}
+
+.pastaImage {
+    width: 100vw;
+}
+
+.aboutMeContainer{
+    
+}
+
+.contactDetails {
+    width: 30vw;
+    margin: 10vw;
+}

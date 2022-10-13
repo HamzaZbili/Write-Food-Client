@@ -1,7 +1,7 @@
 .articleCard {
-    height: 23rem;
-    width: 25rem;
-    margin: 2rem;
+    width: 25vw;
+    aspect-ratio: 1/1.2;
+    margin: 1.5rem;
     border-radius: 5px;
     background-size: cover;
     background-repeat: no-repeat;
@@ -29,44 +29,16 @@
     box-shadow: rgba(0, 0, 0, 0.19) 0px 20px 40px, rgba(0, 0, 0, 0.23) 0px 12px 12px;
 }
 
-@media only screen and (max-width: 1390px) {
-.articleCard {
-    height: 20rem;
-    width: 23rem;
-    }
-}
-
-@media only screen and (max-width: 1081px) {
-    .articleCard {
-        height: 15rem;
-        width: 16rem;
-    }
-}
-
-@media only screen and (max-width: 958px) {
-    .articleCard {
-        height: 20rem;
-        width: 23rem;
-    }
-}
-
-@media only screen and (max-width: 865px) {
-    .articleCard {
-        height: 15rem;
-        width: 16rem;
-    }
-}
-
-
 @media only screen and (max-width: 700px) {
     .articleCard {
-        height: 20rem;
-        width: 23rem;
+        width: 35vw;
+        margin: 1rem;
     }
 }
-@media only screen and (max-width: 430px) {
+
+@media only screen and (max-width: 525px) {
     .articleCard {
-        height: 18rem;
-        width: 20rem;
+        width: 80vw;
+        margin: 2rem;
     }
 }

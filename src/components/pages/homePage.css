@@ -10,11 +10,11 @@
 .homePageImageContainer img{
     object-fit: cover;
     overflow: hidden;
-    height: 25rem;
+    height: 18rem;
 }
 
-@media only screen and (max-width: 1024px) {
+/* @media only screen and (max-width: 1024px) {
     .homePageImageContainer img{
     height:30em;
     }
-}
+} */

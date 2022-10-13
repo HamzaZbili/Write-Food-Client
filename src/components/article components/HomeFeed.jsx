@@ -23,18 +23,16 @@ const HomeFeed = () => {
 
   return (
     <>
-      <div id="homeFeedContainer">
-        <div className="homeFeed">
-          {allArticles?.map((article) => {
-            return <ArticleCard article={article} key={article._id} />;
-          })}
-          {loadMore?.map((article) => {
-            return <ArticleCard article={article} key={article._id} />;
-          })}
-        </div>
+      <div className="homeFeed">
+        {allArticles?.map((article) => {
+          return <ArticleCard article={article} key={article._id} />;
+        })}
+        {loadMore?.map((article) => {
+          return <ArticleCard article={article} key={article._id} />;
+        })}
       </div>
       <button className="loadMoreButton" onClick={handleClick}>
-        more
+        •••
       </button>
     </>
   );

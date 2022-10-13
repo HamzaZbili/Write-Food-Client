@@ -27,6 +27,7 @@ header {
 #titleLogo{
 	text-decoration: none;
 	color: black;
+	font-size: 1.8rem;
 }
 #titleLogo:hover{
 	text-decoration: none;
@@ -59,6 +60,12 @@ header div,
 nav {
 	display: flex;
 	align-items: center;
+}
+
+@media only screen and (max-width: 900px) {
+	#titleLogo{
+		font-size: 1rem;
+	}
 }
 
 

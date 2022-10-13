@@ -1,7 +1,13 @@
 import React from "react";
+import rachel from "../../images/rachel.jpeg";
 
 const AboutMe = () => {
-  return <div>I'm a cutie :D</div>;
+  return (
+    <>
+      <img src={rachel} alt="rachel" />
+      <div>I'm a cutie :D</div>
+    </>
+  );
 };
 
 export default AboutMe;

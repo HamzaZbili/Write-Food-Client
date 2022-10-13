@@ -1,13 +1,13 @@
 import React from "react";
 import "./homePage.css";
-import croissants from "../../images/croissants.jpeg";
+import cookies from "../../images/cookies.jpg";
 import HomeFeed from "../article components/HomeFeed";
 
 const HomePage = () => {
   return (
     <div className="homePage">
       <div className="homePageImageContainer">
-        <img src={croissants} alt="croissants" className="croissants" />
+        <img src={cookies} alt="croissants" className="croissants" />
       </div>
       <HomeFeed />
     </div>

@@ -9,6 +9,7 @@
     justify-content: center;
     align-items: end;
     cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
 .articleInfo {
@@ -20,10 +21,52 @@
     align-items: center;
     margin: .5rem;;
 }
+.articleCard:hover {
+    color: #ff00e1;
+    position: relative;
+    top: -2px;
+    left: -2px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 20px 40px, rgba(0, 0, 0, 0.23) 0px 12px 12px;
+}
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1390px) {
 .articleCard {
-    height: 18rem;
-    width: 20rem;
-    margin: 1rem;}
+    height: 20rem;
+    width: 23rem;
+    }
+}
+
+@media only screen and (max-width: 1081px) {
+    .articleCard {
+        height: 15rem;
+        width: 16rem;
+    }
+}
+
+@media only screen and (max-width: 958px) {
+    .articleCard {
+        height: 20rem;
+        width: 23rem;
+    }
+}
+
+@media only screen and (max-width: 865px) {
+    .articleCard {
+        height: 15rem;
+        width: 16rem;
+    }
+}
+
+
+@media only screen and (max-width: 700px) {
+    .articleCard {
+        height: 20rem;
+        width: 23rem;
+    }
+}
+@media only screen and (max-width: 430px) {
+    .articleCard {
+        height: 15rem;
+        width: 16rem;
+    }
 }

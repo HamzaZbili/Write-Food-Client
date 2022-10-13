@@ -1,33 +1,24 @@
 .homeFeed {
+    width: 100vw;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
 .loadMoreButton {
-    width: 5rem;
-    height: 2.4rem;
+    width: 6rem;
+    height: 3.5rem;
     margin: 2rem;
-    background-color: orange;
-    color: white;
-    font-size: 1.4rem;
-    border: none;
+    font-size: 1.5rem;
+    background-color: white;
+    border: 1px solid black;
     cursor: pointer;
 }
 
-#homeFeedContainer {
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-
-}
-
 .loadMoreButton:hover {
-    background-color: white;
-    color: orange;
-    border: 1px solid orange;
+    background-color: #ff00e1;
+    color: white;
+    border: 1px solid #ff00e1;
 }
 
 @media only screen and (max-width: 700px) {

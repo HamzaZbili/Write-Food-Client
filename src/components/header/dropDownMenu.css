@@ -10,8 +10,8 @@
 }
 
 .myWorkLink svg{
-	height: 1rem;
-	margin-left: .7rem;
+	height: .7rem;
+	margin: .25rem 0 0 .3rem;
 }
 
 .animateDownArrow {
@@ -21,6 +21,7 @@
 .menuBoxContainer {
     display: flex;
     flex-direction: row;
+	padding-right: .8rem;
 }
 
 .menuOptionsContainer {

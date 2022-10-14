@@ -5,7 +5,7 @@ import "./homeFeed.css";
 
 const HomeFeed = () => {
   const [allArticles, setAllArticles] = useState([]);
-  const [alreadyLoaded, setAlreadyLoaded] = useState(3);
+  const [alreadyLoaded, setAlreadyLoaded] = useState(6);
   const [loadMore, setLoadMore] = useState([]);
 
   useEffect(() => {

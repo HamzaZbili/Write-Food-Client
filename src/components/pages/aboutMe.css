@@ -14,6 +14,16 @@
     padding: 3rem;
 }
 
+.noodlesImageContainer {
+    height: 18rem;
+    overflow: hidden;
+}
+
+.noodlesImage {
+    width: 100vw;
+    
+}
+
 @media only screen and (max-width: 735px) {
     .aboutMeContainer {
         flex-direction: column;

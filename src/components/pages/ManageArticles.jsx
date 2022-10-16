@@ -29,15 +29,17 @@ const ManageArticles = () => {
       <button className="postNewArticle" onClick={() => navigate("/new")}>
         post new article
       </button>
-      {allArticles.map((article) => {
-        return (
-          <ArticleAdmin
-            key={article._id}
-            article={article}
-            updateListedArticles={updateListedArticles}
-          />
-        );
-      })}
+      <div className="articleAdminContainer">
+        {allArticles.map((article) => {
+          return (
+            <ArticleAdmin
+              key={article._id}
+              article={article}
+              updateListedArticles={updateListedArticles}
+            />
+          );
+        })}
+      </div>
     </>
   );
 };

@@ -87,67 +87,69 @@ const AddNewArticle = () => {
     }
   };
   return (
-    <form onSubmit={handleSubmit} id="addNewArticleForm">
-      <h1>new article</h1>
-      {fields.map((fieldInfo, key) => {
-        return (
-          <Input
-            key={key}
-            id={fieldInfo.fieldName}
-            className="newArticleInputField"
-            {...fieldInfo}
-            formData={formData}
-            setFormData={setFormData}
-            type={fieldInfo.type}
-          />
-        );
-      })}
-      <label htmlFor="publisher">Publisher</label>
-      <select
-        name="publisher"
-        id="publisher"
-        className="newArticleInputField"
-        onChange={(e) =>
-          setFormData({ ...formData, [e.target.name]: e.target.value })
-        }
-        required
-      >
-        <option value="Dishcult">Dishcult</option>
-        <option value="HiP PARIS">HiP PARIS</option>
-        <option value="Palate">Palate</option>
-        <option value="">other</option>
-      </select>
+    <div id="addNewArticleFormContainer">
+      <form onSubmit={handleSubmit} id="addNewArticleForm">
+        <h1>new article</h1>
+        {fields.map((fieldInfo, key) => {
+          return (
+            <Input
+              key={key}
+              id={fieldInfo.fieldName}
+              className="newArticleInputField"
+              {...fieldInfo}
+              formData={formData}
+              setFormData={setFormData}
+              type={fieldInfo.type}
+            />
+          );
+        })}
+        <label htmlFor="publisher">Publisher</label>
+        <select
+          name="publisher"
+          id="publisher"
+          className="newArticleInputField"
+          onChange={(e) =>
+            setFormData({ ...formData, [e.target.name]: e.target.value })
+          }
+          required
+        >
+          <option value="Dishcult">Dishcult</option>
+          <option value="HiP PARIS">HiP PARIS</option>
+          <option value="Palate">Palate</option>
+          <option value="">other</option>
+        </select>
 
-      {formData.publisher === "" && (
-        <div>
-          <label htmlFor="other">other</label>
-          <input
-            onChange={(e) =>
-              setFormData({ ...formData, [e.target.name]: e.target.value })
-            }
-            value={formData.other}
-            type="text"
-            id="other"
-            name="other"
-          />
-        </div>
-      )}
-      <p>article image:</p>
-      <input
-        onChange={(e) => {
-          // setFormData({ ...formData, [e.target.name]: e.target.value });
-          setFile(e.target.files[0]);
-        }}
-        value={formData.image}
-        type="file"
-        id="image"
-        name="image"
-        accept="png jpeg"
-        required
-      />
-      <input type="submit" value="post article" id="submitArticleButton" />
-      {error && <h5 className="error">{error}</h5>}
-    </form>
+        {formData.publisher === "" && (
+          <div>
+            <label htmlFor="other">other</label>
+            <input
+              onChange={(e) =>
+                setFormData({ ...formData, [e.target.name]: e.target.value })
+              }
+              value={formData.other}
+              type="text"
+              id="other"
+              name="other"
+            />
+          </div>
+        )}
+        <p>article image:</p>
+        <input
+          onChange={(e) => {
+            // setFormData({ ...formData, [e.target.name]: e.target.value });
+            setFile(e.target.files[0]);
+          }}
+          value={formData.image}
+          type="file"
+          id="image"
+          name="image"
+          accept="png jpeg"
+          required
+        />
+        <input type="submit" value="post article" id="submitArticleButton" />
+        {error && <h5 className="error">{error}</h5>}
+      </form>
+    </div>
   );
 };
 

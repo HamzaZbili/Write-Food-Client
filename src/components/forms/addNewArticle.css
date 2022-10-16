@@ -1,8 +1,13 @@
+#addNewArticleFormContainer {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+}
+
 #addNewArticleForm {
     display: flex;
     flex-direction: column;
-    padding-left: 1rem;
-    width: 90vw;
+    width: 355px;
 }
 #addNewArticleForm label{
     padding: .3rem 0 .3rem 1rem;
@@ -69,7 +74,6 @@
     width: 10rem;
     align-self: center;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
 }
 #submitArticleButton:hover {

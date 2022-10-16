@@ -29,22 +29,22 @@ function Navbar() {
         >
           <FaTimes />
         </button>
-        <Link to="/" onClick={showNavbar}>
+        <Link to="/" onClick={showNavbar} className="navBarLink">
           Home
         </Link>
         <DropDownMenu showNavbar={showNavbar} />
-        <Link to="/aboutme" onClick={showNavbar}>
+        <Link to="/aboutme" onClick={showNavbar} className="navBarLink">
           About me
         </Link>
-        <Link to="/contact" onClick={showNavbar}>
+        <Link to="/contact" onClick={showNavbar} className="navBarLink">
           Contact
         </Link>
         {isLoggedIn && (
           <>
-            <Link to="/manage" onClick={showNavbar}>
+            <Link to="/manage" onClick={showNavbar} className="navBarLink">
               Admin
             </Link>
-            <Link to="/backdoor" onClick={removeUser}>
+            <Link to="/backdoor" onClick={removeUser} className="navBarLink">
               Logout
             </Link>
           </>

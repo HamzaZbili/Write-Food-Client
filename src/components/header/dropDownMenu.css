@@ -7,6 +7,7 @@
 	display: flex;
 	align-items: center;
 	margin-right: 0;
+	margin-left: 1rem;
 }
 
 .myWorkLink svg{
@@ -44,6 +45,16 @@
 	font-size: 1rem;
 }
 
+.dropDownMenuLinks {
+	margin: 0 1rem;
+	color: black;
+	text-decoration: none;
+}
+
+.navBarLink:hover {
+	color: #ff00e1;
+}
+
 .hideMenu {
 	transition: .25s;
     opacity: 0;
@@ -51,13 +62,40 @@
 	z-index: -1;
 	position: absolute;
 }
+
+@media only screen and (max-width: 1030px) {
+	.menuBoxContainer {
+		padding: 0;
+	}
+	.myWorkLink {
+		font-size: .8rem;
+		margin: 0;
+	}
+	.myWorkLink svg{
+
+		width: .8rem;
+	}
+	a.dropDownMenuLinks  {
+		font-size: .8rem;
+	}
+}
+
 @media only screen and (max-width: 900px) {
 	.menuOptionsContainer {
-left: 38%;
+		left: 38%;
 	}
 }
 
 @media only screen and (max-width: 700px) {
+	.myWorkLink {
+		font-size: 1.5rem;
+	}
+	a.dropDownMenuLinks  {
+		font-size: 1rem;
+	}
+	.myWorkLink svg{
+		height: 1rem;
+	}
 	.menuBoxContainer {
 		display: flex;
 		flex-direction: column;

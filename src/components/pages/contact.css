@@ -1,15 +1,10 @@
 .pastaImageContainer {
-    object-fit: cover;
     overflow: hidden;
     height: 18rem;
 }
 
 .pastaImage {
     width: 100vw;
-}
-
-.aboutMeContainer{
-    
 }
 
 .contactDetails {

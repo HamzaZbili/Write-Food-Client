@@ -34,7 +34,7 @@ header {
 	color: #ff00e1;
 }
 
-nav a {
+.navBarLink {
 	margin: 0 1rem;
 	color: var(--textColor);
 	text-decoration: none;
@@ -62,9 +62,13 @@ nav {
 	align-items: center;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1030px) {
 	#titleLogo{
 		font-size: 1rem;
+	}
+	.navBarLink {
+		margin: 0 .5rem;
+		font-size: .8rem;
 	}
 }
 
@@ -99,7 +103,7 @@ nav {
 		color: grey;
 	}
 
-	nav a {
+.navBarLink{
 		font-size: 1.5rem;
         transform: scale(0);
         opacity: 0;

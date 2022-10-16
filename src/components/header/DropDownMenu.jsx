@@ -41,7 +41,11 @@ const DropDownMenu = ({ showNavbar }) => {
               const { title } = category;
               return (
                 <div onClick={showNavbar} key={title}>
-                  <Link onClick={dropDownMenu} to={`/search/${title}`}>
+                  <Link
+                    className="dropDownMenuLinks"
+                    onClick={dropDownMenu}
+                    to={`/search/${title}`}
+                  >
                     {title}
                   </Link>
                 </div>

@@ -17,13 +17,18 @@ const ArticleAdmin = ({ article, updateListedArticles }) => {
       <div onClick={handleClick} className="articleAdminInfo">
         <h5>{title}</h5>
         <p>
-          {publisher ? publisher : other}|{city}
+          {publisher ? publisher : other}
+          <br />
+          {city}
         </p>
         <p>{publicationDate.slice(0, 10)}</p>
       </div>
-      <div>
-        <DeleteArticle id={_id} updateListedArticles={updateListedArticles} />
-      </div>
+      <img
+        className="articleAdminCardImage"
+        src={article.image}
+        alt={article.title}
+      />
+      <DeleteArticle id={_id} updateListedArticles={updateListedArticles} />
     </div>
   );
 };

@@ -1,9 +1,10 @@
 .articleAdmin {
     border: 1px solid grey;
     margin: 1rem 2rem 1rem 2rem;
-    padding: .4rem;
+    padding: .3rem;
     display: flex;
     justify-content: space-between;
+    width: 300px;
 }
 .articleAdmin h5{
     padding-left: .5rem;
@@ -12,4 +13,11 @@
 .articleAdminInfo {
     margin: .3rem;
     cursor: pointer;
+    font-size: .8rem;
+    width: 9rem;
+}
+
+.articleAdminCardImage {
+    height: 3rem;
+    align-self: center;
 }

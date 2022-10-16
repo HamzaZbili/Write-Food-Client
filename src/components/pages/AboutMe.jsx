@@ -1,10 +1,14 @@
 import React from "react";
 import rachel from "../../images/rachel.jpeg";
+import noodles from "../../images/noodles.jpg";
 import "./aboutMe.css";
 
 const AboutMe = () => {
   return (
     <>
+      <div className="noodlesImageContainer">
+        <img className="noodlesImage" src={noodles} alt="noodles" />
+      </div>
       <div className="aboutMeContainer">
         <img src={rachel} alt="rachel" className="aboutMeImage" />
         <div className="aboutMeText">

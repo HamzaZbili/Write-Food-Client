@@ -10,6 +10,7 @@ const DeleteArticle = ({ id, updateListedArticles }) => {
     try {
       const response = await service.delete(`/articles/delete/${id}`);
       updateListedArticles();
+      window.alert("article deleted");
       navigate(`/manage`);
     } catch (error) {
       console.log(error);

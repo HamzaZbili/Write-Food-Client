@@ -1,7 +1,14 @@
+.articleAdminContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .postNewArticle {
     align-self: center;
     height: 3rem;
     width: 9rem;
+    margin: 1.5rem;
     background-color: orange;
     border: none;
     color: white;

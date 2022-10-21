@@ -38,6 +38,7 @@ header {
 	margin: 0 1rem;
 	color: var(--textColor);
 	text-decoration: none;
+	
 }
 
 nav a:hover {

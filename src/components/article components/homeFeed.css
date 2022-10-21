@@ -6,13 +6,14 @@
     justify-content: space-evenly;
 }
 .loadMoreButton {
-    width: 6rem;
-    height: 3.5rem;
+    width: 4rem;
+    height: 2.5rem;
     margin: 2rem;
     font-size: 1.5rem;
     background-color: white;
     border: 1px solid black;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .loadMoreButton:hover {

@@ -19,37 +19,6 @@
     margin-left: 2rem;
 }
 
-#food {
-    position: relative;
-    left: -3.6rem;
-    top: -1.5rem;
-}
-#lifestyle {
-    position: relative;
-    left: -3.6rem;
-    top: -1.5rem;
-}
-#review {
-    position: relative;
-    left: -3.6rem;
-    top: -1.5rem;
-}
-#guide {
-    position: relative;
-    left: -3.6rem;
-    top: -1.5rem;
-}
-#recipe {
-    position: relative;
-    left: -3.6rem;
-    top: -1.5rem;
-}
-#seasonal {
-    position: relative;
-    left: -3.6rem;
-    top: -1.5rem;
-}
-
 #publisher {
     width: 10rem;
     margin: .3rem;

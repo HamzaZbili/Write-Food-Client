@@ -25,30 +25,28 @@ const fields = [
     fieldName: "link",
     type: "text",
   },
+];
+
+const checkBoxes = [
   {
     label: "lifestyle",
     fieldName: "lifestyle",
-    type: "checkbox",
   },
   {
     label: "guide",
     fieldName: "guide",
-    type: "checkbox",
   },
   {
     label: "review",
     fieldName: "review",
-    type: "checkbox",
   },
   {
     label: "recipe",
     fieldName: "recipe",
-    type: "checkbox",
   },
   {
     label: "seasonal",
     fieldName: "seasonal",
-    type: "checkbox",
   },
 ];
 
@@ -81,7 +79,7 @@ const AddNewArticle = () => {
       data.append("image", file);
       const newArticle = await service
         .post(`/articles/new`, data)
-        .then(navigate("/manage"));
+        .then(navigate("/"));
     } catch (error) {
       setError(error.response);
     }
@@ -101,6 +99,24 @@ const AddNewArticle = () => {
               setFormData={setFormData}
               type={fieldInfo.type}
             />
+          );
+        })}
+        {checkBoxes.map((boxes, key) => {
+          return (
+            <div key={key}>
+              <input
+                type="checkbox"
+                name={boxes.fieldName}
+                formdata={formData}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    [e.target.name]: e.target.checked,
+                  })
+                }
+              />
+              <label htmlFor="scales">{boxes.label}</label>
+            </div>
           );
         })}
         <label htmlFor="publisher">Publisher</label>

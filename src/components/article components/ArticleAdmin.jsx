@@ -21,7 +21,7 @@ const ArticleAdmin = ({ article, updateListedArticles }) => {
           <br />
           {city}
         </p>
-        <p>{publicationDate.slice(0, 10)}</p>
+        <p>{publicationDate?.slice(0, 10)}</p>
       </div>
       <img
         className="articleAdminCardImage"

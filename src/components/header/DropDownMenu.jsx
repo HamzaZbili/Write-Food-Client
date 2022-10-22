@@ -37,7 +37,7 @@ const DropDownMenu = ({ showNavbar }) => {
       {
         <>
           <div className={"hideMenu menuOptionsContainer"} ref={menuOption}>
-            {dropDownOptions.map((category) => {
+            {dropDownOptions?.map((category) => {
               const { title } = category;
               return (
                 <div onClick={showNavbar} key={title}>

@@ -21,7 +21,7 @@ const ArticleCard = ({ article }) => {
         <h2>{title}</h2>
         <div>
           <h4>
-            {publicationDate.slice(0, 10)}|{publisher ? publisher : other}
+            {publicationDate?.slice(0, 10)}|{publisher ? publisher : other}
           </h4>
         </div>
       </div>

@@ -16,7 +16,7 @@ const AboutMe = () => {
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti
           omnis nobis aliquam quod vero id officia doloribus exercitationem
           neque labore molestiae, accusantium facere? Cum porro ducimus
-          recusandae modi quo beatae.
+          recusandae modi quo beatae.faesaesfd.
         </div>
       </div>
     </>

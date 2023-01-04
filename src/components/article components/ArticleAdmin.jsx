@@ -1,6 +1,7 @@
 import React from "react";
 import "./articleAdmin.css";
 import DeleteArticle from "../forms/DeleteArticle";
+import UpdateArticle from "../forms/UpdateArticle";
 
 const ArticleAdmin = ({ article, updateListedArticles }) => {
   const { _id, title, city, publisher, other, link, publicationDate } = article;
@@ -23,12 +24,19 @@ const ArticleAdmin = ({ article, updateListedArticles }) => {
         </p>
         <p>{publicationDate?.slice(0, 10)}</p>
       </div>
+      <div className="imageAndAdminButtons">
       <img
         className="articleAdminCardImage"
         src={article.image}
         alt={article.title}
       />
+      <div className="adminButtons">
+      <UpdateArticle article={article} updateListedArticles={updateListedArticles}/>
       <DeleteArticle id={_id} updateListedArticles={updateListedArticles} />
+      </div>
+      
+      </div>
+      
     </div>
   );
 };

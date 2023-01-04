@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ArticleAdmin from "../article components/ArticleAdmin";
 import service from "../auth/service";
+import BackButton from "../global/BackButton";
 import "./manageArticles.css";
 
 const ManageArticles = () => {
@@ -26,6 +27,8 @@ const ManageArticles = () => {
 
   return (
     <>
+    <h2 className="adminHeader"> admin</h2>
+    <BackButton/>
       <button className="postNewArticle" onClick={() => navigate("/new")}>
         post new article
       </button>

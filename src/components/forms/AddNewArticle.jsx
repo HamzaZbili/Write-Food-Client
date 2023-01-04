@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import service from "../auth/service";
 import Input from "./Input";
 import "./addNewArticle.css";
+import BackButton from "../global/BackButton";
 
 const fields = [
   {
@@ -84,7 +85,9 @@ const AddNewArticle = () => {
       setError(error.response);
     }
   };
-  return (
+  return (<>
+    <h2 className="adminHeader">new article</h2>
+    <BackButton/>
     <div id="addNewArticleFormContainer">
       <form onSubmit={handleSubmit} id="addNewArticleForm">
         <h1>new article</h1>
@@ -166,6 +169,7 @@ const AddNewArticle = () => {
         {error && <h5 className="error">{error}</h5>}
       </form>
     </div>
+    </>
   );
 };
 

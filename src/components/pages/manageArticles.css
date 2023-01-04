@@ -4,19 +4,31 @@
     justify-content: center;
 }
 
+.adminHeader {
+    background-color: cadetblue;
+    color: white;
+    text-align: center;
+    line-height: 5rem;
+    width: 100vw;
+    height: 5rem;
+
+}
+
 .postNewArticle {
-    align-self: center;
+    align-self: flex-end;
     height: 3rem;
     width: 9rem;
     margin: 1.5rem;
-    background-color: orange;
+    margin-right: 4rem;
+    background-color: rgb(226, 124, 28);
     border: none;
     color: white;
     font-size: 1.2rem;
     cursor: pointer;
+    border-radius: .4rem;
 }
 .postNewArticle:hover {
-    color:orange;
+    color:rgb(226, 124, 28);
     background-color: white;
-    border: 1px solid orange;
+    border: 1px solid rgb(226, 124, 28);
 }

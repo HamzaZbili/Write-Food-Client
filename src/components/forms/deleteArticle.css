@@ -1,16 +1,17 @@
 .deleteArticleButton {
-    background-color: red;
+    background-color: rgb(128, 25, 25);
+    border-radius: .4rem;
     color: white;
     height: 1.8rem;
     width: 3.2rem;
+    padding: .2rem;
     text-align: center;
-    align-self: flex-end;
-    margin: 1rem;
+    margin-top: .5rem;
     cursor: pointer;
 }
 
 .deleteArticleButton:hover {
     background-color: white;
-    color: red;
-    border: 1px solid red;
+    color: rgb(128, 25, 25);
+    border: 1px solid rgb(128, 25, 25);
 }

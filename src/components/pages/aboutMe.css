@@ -1,14 +1,17 @@
 .aboutMeContainer {
     display: flex;
+    justify-content: space-around;
 }
 
 .aboutMeImage {
-    width: 30vw;
-    margin: 3rem;
+    width: 35vw;
+    height: fit-content;
+    margin: 3rem 0 3rem 3rem;
 }
 
 .aboutMeText {
     align-self: center;
+    width: 40vw;
     margin: 3rem;
     padding: 3rem;
 }
@@ -36,5 +39,8 @@
         align-self: auto;
         margin: 0;
         padding: 3rem;
+    }
+    .aboutMeText {
+        width: 90vw;
     }
 }

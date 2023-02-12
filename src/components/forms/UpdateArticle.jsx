@@ -35,14 +35,13 @@ const UpdateArticle = ({article, updateListedArticles}) => {
     
     }
   };
-
   return (<>
    <div className="updateArticleButton" onClick={handleClick}>Update</div>
    {updatePopUp&& <div className="updateForm" ref={popUpForm}>
     <div className="updateFormCloseButton" onClick={handleClick}>
     <Cross />
     </div>
-    <h4>update article: {article.title}</h4>
+    <h4 className="updateArticleTitle">update article: {article.title}</h4>
     <div id="addNewArticleFormContainer">
       <form onSubmit={handleSubmit} id="addNewArticleForm">
         {fields.map((fieldInfo, key) => {
@@ -53,7 +52,8 @@ const UpdateArticle = ({article, updateListedArticles}) => {
               className="newArticleInputField"
               {...fieldInfo}
               formData={formData}
-              // placeholder={formData.entries(formData.keys())}
+              defaultValue={article[fieldInfo.fieldName]}
+              placeholder={article[fieldInfo.fieldName]}
               setFormData={setFormData}
               type={fieldInfo.type}
             />
@@ -66,11 +66,13 @@ const UpdateArticle = ({article, updateListedArticles}) => {
                 type="checkbox"
                 name={boxes.fieldName}
                 formdata={formData}
+                placeholder={article[boxes.fieldName]}
                 onChange={(e) =>
                   setFormData({
                     ...formData,
                     [e.target.name]: e.target.checked,
                   })
+                  
                 }
               />
               <label htmlFor="scales">{boxes.label}</label>
@@ -82,6 +84,7 @@ const UpdateArticle = ({article, updateListedArticles}) => {
           name="publisher"
           id="publisher"
           className="newArticleInputField"
+          defaultValue={formData.publisher}
           onChange={(e) =>
             setFormData({ ...formData, [e.target.name]: e.target.value })
           }
@@ -101,9 +104,12 @@ const UpdateArticle = ({article, updateListedArticles}) => {
                 setFormData({ ...formData, [e.target.name]: e.target.value })
               }
               value={formData.other}
+              defaultValue={formData.other}
               type="text"
               id="other"
               name="other"
+              placeholder={article.other}
+              
             />
           </div>
         )}

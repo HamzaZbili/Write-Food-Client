@@ -4,52 +4,7 @@ import service from "../auth/service";
 import Input from "./Input";
 import "./addNewArticle.css";
 import BackButton from "../global/BackButton";
-
-const fields = [
-  {
-    label: "Title",
-    fieldName: "title",
-    type: "text",
-  },
-  {
-    label: "City",
-    fieldName: "city",
-    type: "text",
-  },
-  {
-    label: "Publication date",
-    fieldName: "publicationDate",
-    type: "date",
-  },
-  {
-    label: "Link",
-    fieldName: "link",
-    type: "text",
-  },
-];
-
-const checkBoxes = [
-  {
-    label: "lifestyle",
-    fieldName: "lifestyle",
-  },
-  {
-    label: "guide",
-    fieldName: "guide",
-  },
-  {
-    label: "review",
-    fieldName: "review",
-  },
-  {
-    label: "recipe",
-    fieldName: "recipe",
-  },
-  {
-    label: "seasonal",
-    fieldName: "seasonal",
-  },
-];
+import {fields, checkBoxes} from "./articleFields.js"
 
 const AddNewArticle = () => {
   const [formData, setFormData] = useState({

@@ -23,7 +23,7 @@ const DropDownMenu = ({ showNavbar }) => {
 
   useEffect(() => {
     document.addEventListener("mousedown", (event) => {
-      if (!menuBox.current.contains(event.target)) {
+      if (!menuBox.current?.contains(event.target)) {
         menuOption.current.classList.add("hideMenu");
       }
     });

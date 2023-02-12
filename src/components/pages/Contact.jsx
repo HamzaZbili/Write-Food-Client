@@ -10,11 +10,10 @@ const Contact = () => {
       </div>
       <div className="aboutMeContainer">
         <div className="contactDetails">
-          <h4>contact details</h4>
+          <h4>contact me</h4>
           <br />
-          <p>insert contact details here</p>
+          <p>If you'd like to reach out, sent me an email at rmnaismith@me.com or send me a message on +33767055092.</p>
         </div>
-        <div className="contactDetails">image here?</div>
       </div>
     </>
   );

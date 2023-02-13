@@ -25,18 +25,16 @@ const ArticleAdmin = ({ article, updateListedArticles }) => {
         <p>{publicationDate?.slice(0, 10)}</p>
       </div>
       <div className="imageAndAdminButtons">
-      <img
-        className="articleAdminCardImage"
-        src={article.image}
-        alt={article.title}
-      />
-      <div className="adminButtons">
-      <UpdateArticle article={article} updateListedArticles={updateListedArticles}/>
-      <DeleteArticle id={_id} updateListedArticles={updateListedArticles} />
+        <img
+          className="articleAdminCardImage"
+          src={article.image}
+          alt={article.title}
+        />
+        <div className="adminButtons">
+          {/* <UpdateArticle article={article} updateListedArticles={updateListedArticles}/> */}
+          <DeleteArticle id={_id} updateListedArticles={updateListedArticles} />
+        </div>
       </div>
-      
-      </div>
-      
     </div>
   );
 };

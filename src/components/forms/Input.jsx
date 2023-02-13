@@ -6,6 +6,7 @@ const Input = ({
   type = "text",
   fieldName,
   formData,
+  defaultValue,
   setFormData,
   placeholder,
   ...otherProps
@@ -20,6 +21,7 @@ const Input = ({
         id={id}
         value={formData[fieldName]}
         // checked={formData[fieldName]}
+        defaultValue={defaultValue}
         placeholder={placeholder}
         onChange={(event) =>
           setFormData({

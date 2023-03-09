@@ -17,16 +17,14 @@
   height: 2.5rem;
   margin: 2rem;
   font-size: 1.5rem;
-  background-color: white;
-  border: 1px solid black;
+  background-color: rgba(229, 204, 142, 0);
+  border: none;
   cursor: pointer;
   text-decoration: none;
 }
 
 .loadMoreButton:hover {
-  background-color: #ff00e1;
-  color: white;
-  border: 1px solid #ff00e1;
+  color: rgba(38, 2, 255, 1);
 }
 
 @media only screen and (max-width: 525px) {

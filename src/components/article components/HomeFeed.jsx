@@ -40,7 +40,7 @@ const HomeFeed = () => {
         <LoadingDots />
       ) : (
         <button className="loadMoreButton" onClick={handleClick}>
-          •••
+          more...
         </button>
       )}
     </>

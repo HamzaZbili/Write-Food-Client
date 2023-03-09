@@ -27,6 +27,7 @@ const HomeFeed = () => {
 
   return (
     <>
+      <h2 className="homeFeedTitle">lastest work</h2>
       <div className="homeFeed">
         {allArticles?.map((article) => {
           return <ArticleCard article={article} key={article._id} />;

@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import React from "react";
+import "./app.css";
 import HomePage from "./components/pages/HomePage";
 import Oops from "./components/pages/oops";
 import Layout from "./components/global/Layout";

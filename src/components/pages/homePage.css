@@ -1,20 +1,63 @@
 .croissants {
-    width: 100vw;
+  width: 100vw;
 }
 
 .homePage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.homePageImageContainer img{
-    object-fit: cover;
-    overflow: hidden;
-    height: 18rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(229, 204, 142, 0.3);
 }
 
-/* @media only screen and (max-width: 1024px) {
-    .homePageImageContainer img{
-    height:30em;
-    }
-} */
+.homePageHeader {
+  height: 25rem;
+  background-color: white;
+  width: 100vw;
+}
+
+.homePageTextContainer {
+  width: 50vw;
+  padding: 5vw;
+}
+
+.homePageTextContainer h4 {
+  color: rgba(38, 2, 255, 1);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.homePageTextContainer h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.homePageTextContainer p {
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 0 4vw 0 4vw;
+  line-height: 140%;
+}
+
+.homePageImageContainer img {
+  object-fit: cover;
+  overflow: hidden;
+  height: 18rem;
+}
+
+@media only screen and (max-width: 1024px) {
+  .homePageImageContainer img {
+    height: 30em;
+  }
+}
+@media only screen and (max-width: 525px) {
+  .homePageHeader {
+    height: 20rem;
+  }
+  .homePageTextContainer {
+    width: 100vw;
+  }
+  .homePageTextContainer p {
+    padding: 0 10vw 0 10vw;
+  }
+}

@@ -1,32 +1,38 @@
 .homeFeed {
-    width: 100vw;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
+
+.homeFeedTitle {
+  height: 6rem;
+  display: flex;
+  align-items: center;
+}
+
 .loadMoreButton {
-    width: 4rem;
-    height: 2.5rem;
-    margin: 2rem;
-    font-size: 1.5rem;
-    background-color: white;
-    border: 1px solid black;
-    cursor: pointer;
-    text-decoration: none;
+  width: 4rem;
+  height: 2.5rem;
+  margin: 2rem;
+  font-size: 1.5rem;
+  background-color: white;
+  border: 1px solid black;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .loadMoreButton:hover {
-    background-color: #ff00e1;
-    color: white;
-    border: 1px solid #ff00e1;
+  background-color: #ff00e1;
+  color: white;
+  border: 1px solid #ff00e1;
 }
 
 @media only screen and (max-width: 525px) {
-    .homeFeed {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+  .homeFeed {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
-

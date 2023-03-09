@@ -18,9 +18,6 @@ function Navbar() {
 
   return (
     <header>
-      <a href="/" id="titleLogo">
-        <h2>RACHEL NAISMITH</h2>
-      </a>
       <nav ref={navRef}>
         <button
           id="navClose"
@@ -30,14 +27,14 @@ function Navbar() {
           <FaTimes />
         </button>
         <Link to="/" onClick={showNavbar} className="navBarLink">
-          Home
+          home
         </Link>
         <DropDownMenu showNavbar={showNavbar} />
         <Link to="/aboutme" onClick={showNavbar} className="navBarLink">
-          About me
+          about
         </Link>
         <Link to="/contact" onClick={showNavbar} className="navBarLink">
-          Contact
+          contact
         </Link>
         {isLoggedIn && (
           <>
@@ -45,7 +42,7 @@ function Navbar() {
               Admin
             </Link>
             <Link to="/backdoor" onClick={removeUser} className="navBarLink">
-              Logout
+              logout
             </Link>
           </>
         )}

@@ -1,5 +1,6 @@
 import React from "react";
 import "./articleCard.css";
+import { formatDate } from "../../utils/dateFormat";
 
 const ArticleCard = ({ article }) => {
   const { title, image, link, publicationDate, publisher, other } = article;
@@ -12,17 +13,17 @@ const ArticleCard = ({ article }) => {
     openInNewTab(link);
   };
   return (
-    <div
-      className="articleCard"
-      style={{ backgroundImage: `url(${image})` }}
-      onClick={handleClick}
-    >
+    <div className="articleContainer">
+      <div
+        className="articleCard"
+        style={{ backgroundImage: `url(${image})` }}
+        onClick={handleClick}
+      ></div>
       <div className="articleInfo">
         <h2>{title}</h2>
-        <div>
-          <h4>
-            {publicationDate?.slice(0, 10)}|{publisher ? publisher : other}
-          </h4>
+        <div className="publisherAndDate">
+          {publisher ? publisher : other}
+          <h4>{formatDate(publicationDate)}</h4>
         </div>
       </div>
     </div>

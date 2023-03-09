@@ -21,10 +21,10 @@ const ArticleCard = ({ article }) => {
       ></div>
       <div className="articleInfo">
         <h2>{title}</h2>
-        <div className="publisherAndDate">
+        {/* <div className="publisherAndDate">
           {publisher ? publisher : other}
           <h4>{formatDate(publicationDate)}</h4>
-        </div>
+        </div> */}
       </div>
     </div>
   );

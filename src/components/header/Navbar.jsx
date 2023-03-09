@@ -30,7 +30,7 @@ function Navbar() {
           home
         </Link>
         <DropDownMenu showNavbar={showNavbar} />
-        <Link to="/aboutme" onClick={showNavbar} className="navBarLink">
+        <Link to="/about" onClick={showNavbar} className="navBarLink">
           about
         </Link>
         <Link to="/contact" onClick={showNavbar} className="navBarLink">

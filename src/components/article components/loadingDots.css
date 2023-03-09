@@ -1,6 +1,5 @@
-#loadingDotsContainer{
-    width: 4rem;
-    height: 2.5rem;
-    margin: 2rem;
-    border: 1px solid black;
+#loadingDotsContainer {
+  width: 4rem;
+  height: 2.5rem;
+  margin: 2rem;
 }

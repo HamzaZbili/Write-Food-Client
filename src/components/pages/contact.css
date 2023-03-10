@@ -1,20 +1,23 @@
-.pastaImageContainer {
+/* .pastaImageContainer {
     overflow: hidden;
     height: 18rem;
 }
 
 .pastaImage {
     width: 100vw;
+} */
+
+.contactContainer {
+  min-height: 80vh;
 }
 
 .contactDetails {
-    width: 80vw;
-    margin: 10vw;
+  width: 80vw;
+  margin: 10vw;
 }
 
 @media only screen and (max-width: 735px) {
-    .contactDetails { 
-        width:80vw;
-    }
-
+  .contactDetails {
+    width: 80vw;
+  }
 }

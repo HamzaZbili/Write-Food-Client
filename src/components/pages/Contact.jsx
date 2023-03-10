@@ -1,18 +1,20 @@
 import React from "react";
-import pasta from "../../images/pasta.jpg";
 import "./contact.css";
 
 const Contact = () => {
   return (
     <>
-      <div className="pastaImageContainer">
+      {/* <div className="pastaImageContainer">
         <img className="pastaImage" src={pasta} alt="pasta" />
-      </div>
-      <div className="aboutMeContainer">
+      </div> */}
+      <div className="contactContainer">
         <div className="contactDetails">
-          <h4>contact me</h4>
+          <h1>contact me</h1>
           <br />
-          <p>If you'd like to reach out, sent me an email at rmnaismith@me.com or send me a message on +33767055092.</p>
+          <p>
+            If you'd like to reach out, sent me an email at rmnaismith@me.com or
+            send me a message on +33767055092.
+          </p>
         </div>
       </div>
     </>

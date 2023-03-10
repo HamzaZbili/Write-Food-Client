@@ -28,25 +28,21 @@ const SignIn = () => {
   return (
     <>
       <form onSubmit={handleSubmit} className="authForm">
-        <label htmlFor="username" className="authLabel">
-          username
-        </label>
         <input
           type="text"
           id="username"
           name="username"
+          placeholder="username"
           onChange={(e) =>
             setUser({ ...user, [e.target.name]: e.target.value })
           }
           value={user.username}
         />
-        <label htmlFor="password" className="authLabel">
-          password
-        </label>
         <input
           type="password"
           id="password"
           name="password"
+          placeholder="password"
           onChange={(e) =>
             setUser({ ...user, [e.target.name]: e.target.value })
           }

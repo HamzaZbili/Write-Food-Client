@@ -1,30 +1,37 @@
 .authForm {
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 4rem;
-}
-.authForm label{
-    margin: .5rem;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 4rem;
+  min-height: 70vh;
 }
 .authForm input:focus {
-    outline: none;
+  outline: none;
 }
-.authForm input:focus {
-    outline: none;
+
+#username {
+  margin: 0.5rem;
+  padding: 0.2rem;
 }
+
+#password {
+  margin: 0.5rem;
+  padding: 0.2rem;
+}
+
 #authButton {
-    margin-top: 1rem;
-    background-color:green;
-    color:white;
-    font-size: 1.3rem;
-    width: 6rem;
-    border: 0;
+  margin-top: 0.3rem;
+  background-color: #3b71ca;
+  color: white;
+  width: 10rem;
+  height: 1.3rem;
+  border: 0;
+  border-radius: 2px;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 #authButton:hover {
-    background-color:white;
-    color:green;
-    border: 1px solid green;
+  position: relative;
+  top: -1px;
+  left: -1px;
 }

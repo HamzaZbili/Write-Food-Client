@@ -1,0 +1,7 @@
+.errorPage {
+  min-height: 80vh;
+  padding: 3rem;
+}
+.errorPage h1 {
+  margin: 2rem;
+}

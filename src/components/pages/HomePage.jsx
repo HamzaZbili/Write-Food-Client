@@ -1,40 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./homePage.css";
 import HomeFeed from "../article components/HomeFeed";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
-  const [width, setWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWidth(window.innerWidth);
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
   return (
     <div className="homePage">
       <div className="homePageHeader">
         <article className="homePageTextContainer">
-          <h4>food writer | eater</h4>
+          <Link to="/about" className="foodWriterEater">
+            <h4>food writer | eater</h4>
+          </Link>
           <h1>
             Rachel <br />
             Naismith
           </h1>
-          {width > 700 ? (
-            <p>
-              Hey! I’m a passionate and experienced food writer with a diverse
-              background in the industry. I have written for a variety of
-              publications, including Palate Magazine, HiP Paris, Paris
-              Unlocked, and The London Women and Wine Club.
-            </p>
-          ) : (
-            <p>
-              Hi! I’m a passionate and experienced food writer with a diverse
-              background in the industry.
-            </p>
-          )}
+          <p>Hey! Welcome to my portofolio website!</p>
         </article>
         <div></div>
       </div>

@@ -30,7 +30,7 @@
 
 .menuOptionsContainer {
   background-color: white;
-  padding: 1rem 0.5rem 0.5rem 0.5rem;
+  padding: 0.6rem 0.5rem 0.5rem 0.5rem;
   display: flex;
   flex-direction: row;
   position: absolute;
@@ -40,7 +40,7 @@
   opacity: 1;
   z-index: 1;
   transition: 0.25s;
-  border: 2px solid rgba(229, 204, 142, 0.3);
+  border: 1px solid rgba(38, 2, 255, 1);
 }
 
 .menuOptionsContainer a {

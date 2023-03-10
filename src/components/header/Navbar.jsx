@@ -1,4 +1,3 @@
-import { useCallback } from "react";
 import { useRef } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -10,11 +9,11 @@ function Navbar() {
   const { isLoggedIn, removeUser } = useAuth();
   const navRef = useRef();
 
-  const showNavbar = useCallback(() => {
+  function showNavbar() {
     setTimeout(() => {
       navRef.current.classList.toggle("responsive_nav");
     }, 120);
-  });
+  }
 
   return (
     <header>

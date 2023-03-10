@@ -10,7 +10,6 @@
 }
 
 .homePageHeader {
-  height: 25rem;
   background-color: white;
   width: 100vw;
 }
@@ -24,6 +23,14 @@
   color: rgba(38, 2, 255, 1);
   text-align: center;
   margin-bottom: 1rem;
+  text-decoration: none;
+}
+
+.foodWriterEater {
+  text-decoration: none;
+}
+.homePageTextContainer h4 a {
+  text-decoration: none;
 }
 
 .homePageTextContainer h1 {
@@ -51,9 +58,6 @@
   }
 }
 @media only screen and (max-width: 525px) {
-  .homePageHeader {
-    height: 20rem;
-  }
   .homePageTextContainer {
     width: 100vw;
   }

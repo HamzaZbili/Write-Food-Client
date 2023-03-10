@@ -1,45 +1,51 @@
 .aboutMeContainer {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
+}
+
+.aboutPageTitle {
+  font-size: 4rem;
+  margin-left: 5rem;
 }
 
 .aboutMeImage {
-    width: 35vw;
-    height: fit-content;
-    margin: 3rem 0 3rem 3rem;
+  width: 35vw;
+  height: fit-content;
+  margin: 3rem 0 3rem 3rem;
+  box-shadow: -10px -10px rgba(38, 2, 255, 1);
 }
 
 .aboutMeText {
-    align-self: center;
-    width: 60vw;
-    margin: 3rem;
+  align-self: center;
+  width: 60vw;
+  margin: 3rem;
+  font-size: 0.9rem;
 }
-
+/* 
 .noodlesImageContainer {
     height: 18rem;
     overflow: hidden;
-}
+} */
 
-.noodlesImage {
+/* .noodlesImage {
     width: 100vw;
     
-}
+} */
 
-@media only screen and (max-width: 735px) {
-    .aboutMeContainer {
-        flex-direction: column;
-    }
-    .aboutMeImage {
-        width: 80vw;
-        border-radius: 10px;
-        margin: 2rem;
-    }
-    .aboutMeText {
-        align-self: auto;
-        margin: 0;
-        padding: 3rem;
-    }
-    .aboutMeText {
-        width: 90vw;
-    }
+@media only screen and (max-width: 525px) {
+  .aboutMeContainer {
+    flex-direction: column;
+  }
+  .aboutMeImage {
+    width: 80vw;
+    margin: 2rem 10vw 0 10vw;
+  }
+  .aboutMeText {
+    align-self: auto;
+    margin: 0;
+    padding: 0rem 3rem 3rem 3rem;
+  }
+  .aboutMeText {
+    width: 90vw;
+  }
 }

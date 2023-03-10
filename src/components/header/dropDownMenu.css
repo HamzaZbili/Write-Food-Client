@@ -1,5 +1,5 @@
 .myWorkLink:hover {
-  fill: #ff00e1;
+  fill: rgba(38, 2, 255, 1);
 }
 
 .myWorkLink {
@@ -56,7 +56,7 @@
 }
 
 .navBarLink:hover {
-  color: #ff00e1;
+  color: rgba(38, 2, 255, 1);
 }
 
 .hideMenu {

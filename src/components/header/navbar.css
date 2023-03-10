@@ -1,7 +1,7 @@
 :root {
   --mainColor: white;
   --mainColorLight: White;
-  --secondaryColor: #ff00e1;
+  --secondaryColor: rgba(38, 2, 255, 1);
   --textColor: black;
 }
 
@@ -16,7 +16,7 @@ header {
 }
 #titleLogo:hover {
   text-decoration: none;
-  color: #ff00e1;
+  color: rgba(38, 2, 255, 1);
 }
 
 .navBarLink {
@@ -103,7 +103,7 @@ nav {
   }
 
   header .nav-btn:hover {
-    color: #ff00e1;
+    color: rgba(38, 2, 255, 1);
   }
 
   nav .nav-close-btn:hover {

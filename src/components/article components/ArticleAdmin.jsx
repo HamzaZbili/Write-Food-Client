@@ -1,5 +1,6 @@
 import React from "react";
 import "./articleAdmin.css";
+import { formatDate } from "../../utils/dateFormat";
 import DeleteArticle from "../forms/DeleteArticle";
 import UpdateArticle from "../forms/UpdateArticle";
 
@@ -16,13 +17,13 @@ const ArticleAdmin = ({ article, updateListedArticles }) => {
   return (
     <div className="articleAdmin">
       <div onClick={handleClick} className="articleAdminInfo">
-        <h5>{title}</h5>
+        <h4>{title}</h4>
         <p>
-          {publisher ? publisher : other}
+          publisher: {publisher ? publisher : other}
           <br />
-          {city}
+          city: {city}
         </p>
-        <p>{publicationDate?.slice(0, 10)}</p>
+        <p>{formatDate(publicationDate)}</p>
       </div>
       <div className="imageAndAdminButtons">
         <img

@@ -8,7 +8,7 @@ const DeleteArticle = ({ id, updateListedArticles }) => {
   const handleDelete = async (e) => {
     e.preventDefault();
     try {
-      const response = await service.delete(`/articles/delete/${id}`);
+      await service.delete(`/articles/delete/${id}`);
       updateListedArticles();
       window.alert("article deleted");
       navigate(`/manage`);
@@ -18,13 +18,11 @@ const DeleteArticle = ({ id, updateListedArticles }) => {
   };
   return (
     <div
-      className="deleteArticleButton"
-      onClick={(e) => {
-        if (window.confirm("delete article my love?")) handleDelete(e);
-      }}
-    >
-      delete
-    </div>
+    // className="deleteArticleButton"
+    // onClick={(e) => {
+    //   if (window.confirm("delete article my love?")) handleDelete(e);
+    // }}
+    ></div>
   );
 };
 

@@ -38,7 +38,7 @@ function Navbar() {
         {isLoggedIn && (
           <>
             <Link to="/manage" onClick={showNavbar} className="navBarLink">
-              Admin
+              admin
             </Link>
             <Link to="/backdoor" onClick={removeUser} className="navBarLink">
               logout

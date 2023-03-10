@@ -32,7 +32,10 @@ const ArticleAdmin = ({ article, updateListedArticles }) => {
           alt={article.title}
         />
         <div className="adminButtons">
-          {/* <UpdateArticle article={article} updateListedArticles={updateListedArticles}/> */}
+          <UpdateArticle
+            article={article}
+            updateListedArticles={updateListedArticles}
+          />
           <DeleteArticle id={_id} updateListedArticles={updateListedArticles} />
         </div>
       </div>

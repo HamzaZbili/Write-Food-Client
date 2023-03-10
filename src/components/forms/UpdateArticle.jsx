@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { useState } from "react";
 import Cross from "../global/Cross";
 import { fields, checkBoxes } from "./articleFields.js";
+import edit from "../icons/edit.svg";
 import Input from "./Input";
 import "./updateArticle.css";
 
@@ -41,14 +42,10 @@ const UpdateArticle = ({ article, updateListedArticles }) => {
   }, []);
   const handleSubmit = async (event) => {
     event.preventDefault();
-    try {
-    } catch (error) {}
   };
   return (
     <>
-      <div className="updateArticleButton" onClick={handleClick}>
-        Update
-      </div>
+      <img src={edit} alt="edit" onClick={handleClick} className="editButton" />
       {updatePopUp && (
         <div className="updateForm" ref={popUpForm}>
           <div className="updateFormCloseButton" onClick={handleClick}>

@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import service from "../auth/service";
 import "./deleteArticle.css";
+import bin from "../icons/bin.svg";
 
 const DeleteArticle = ({ id, updateListedArticles }) => {
   const navigate = useNavigate();
@@ -18,11 +19,12 @@ const DeleteArticle = ({ id, updateListedArticles }) => {
   };
   return (
     <div
-    // className="deleteArticleButton"
-    // onClick={(e) => {
-    //   if (window.confirm("delete article my love?")) handleDelete(e);
-    // }}
-    ></div>
+      onClick={(e) => {
+        if (window.confirm("delete article my love?")) handleDelete(e);
+      }}
+    >
+      <img src={bin} alt="bin" className="bin" />
+    </div>
   );
 };
 

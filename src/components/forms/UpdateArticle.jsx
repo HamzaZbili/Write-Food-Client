@@ -1,10 +1,11 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { useState } from "react";
 import Cross from "../global/Cross";
 import { fields, checkBoxes } from "./articleFields.js";
 import edit from "../icons/edit.svg";
 import Input from "./Input";
 import "./updateArticle.css";
+import service from "../auth/service";
 
 const UpdateArticle = ({ article, updateListedArticles }) => {
   const [updatePopUp, setUpdatePopup] = useState(false);
@@ -26,23 +27,25 @@ const UpdateArticle = ({ article, updateListedArticles }) => {
   });
 
   function handleClick() {
+    console.log(article);
+    setUpdatePopup(!updatePopUp);
     if (!updatePopUp) {
       setUpdatePopup(true);
     } else {
       setUpdatePopup(false);
     }
   }
-
-  useEffect(() => {
-    document.addEventListener("mousedown", (event) => {
-      if (!popUpForm.current?.contains(event.target)) {
-        setUpdatePopup(false);
-      }
-    });
-  }, []);
   const handleSubmit = async (event) => {
     event.preventDefault();
+    try {
+      await service.patch(`/articles/update/${article.id}`, formData);
+      updateListedArticles();
+      setUpdatePopup(false);
+    } catch (error) {
+      setError(error.message);
+    }
   };
+
   return (
     <>
       <img src={edit} alt="edit" onClick={handleClick} className="editButton" />
@@ -51,9 +54,7 @@ const UpdateArticle = ({ article, updateListedArticles }) => {
           <div className="updateFormCloseButton" onClick={handleClick}>
             <Cross />
           </div>
-          <h4 className="updateArticleTitle">
-            update article: {article.title}
-          </h4>
+          <h4 className="updateArticleTitle">{article.title}</h4>
           <div id="addNewArticleFormContainer">
             <form onSubmit={handleSubmit} id="addNewArticleForm">
               {fields.map((fieldInfo, key) => {

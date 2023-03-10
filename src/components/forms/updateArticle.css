@@ -8,26 +8,19 @@
 }
 
 .updateForm {
-  position: absolute;
-  right: 100vw;
-  top: 15rem;
+  z-index: 1;
+  position: fixed;
+  top: 0;
   left: 0;
-  width: 90vw;
   height: 100vh;
-  margin-left: 6vw;
-  padding: 3rem 1rem 1rem 3rem;
+  width: 100vw;
   background-color: white;
-  opacity: 0.95;
-  border: 2px solid black;
-  border-radius: 1rem;
-  display: flex;
-  flex-direction: column;
-  /* align-items: center; */
 }
 
 .updateFormCloseButton {
   position: absolute;
-  right: 3rem;
+  top: 2rem;
+  right: 2rem;
   cursor: pointer;
 }
 

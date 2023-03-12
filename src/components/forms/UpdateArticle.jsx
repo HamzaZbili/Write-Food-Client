@@ -28,7 +28,6 @@ const UpdateArticle = ({ article, updateListedArticles }) => {
   });
 
   function handleClick() {
-    console.log(formData.publicationDate);
     setUpdatePopup(!updatePopUp);
     if (!updatePopUp) {
       setUpdatePopup(true);

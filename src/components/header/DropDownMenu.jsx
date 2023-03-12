@@ -16,8 +16,7 @@ const DropDownMenu = ({ showNavbar }) => {
   const menuBox = useRef();
   const menuOption = useRef();
 
-  const dropDownMenu = () => {
-    downArrowRef.current.classList.toggle("animateDownArrow");
+  const openDropDownMenu = () => {
     menuOption.current.classList.toggle("hideMenu");
   };
 
@@ -31,21 +30,26 @@ const DropDownMenu = ({ showNavbar }) => {
 
   return (
     <div ref={menuBox} className="menuBoxContainer">
-      <a className="myWorkLink" onClick={dropDownMenu}>
-        work <DownArrow ref={downArrowRef} />
+      <a
+        className="myWorkLink"
+        ref={downArrowRef}
+        onMouseEnter={openDropDownMenu}
+      >
+        work
+        {/* <DownArrow  /> */}
       </a>
       {
         <>
-          <div className={"hideMenu menuOptionsContainer"} ref={menuOption}>
+          <div
+            className={"hideMenu menuOptionsContainer"}
+            ref={menuOption}
+            onMouseLeave={openDropDownMenu}
+          >
             {dropDownOptions?.map((category) => {
               const { title } = category;
               return (
                 <div onClick={showNavbar} key={title}>
-                  <Link
-                    className="dropDownMenuLinks"
-                    onClick={dropDownMenu}
-                    to={`/search/${title}`}
-                  >
+                  <Link className="dropDownMenuLinks" to={`/search/${title}`}>
                     {title}
                   </Link>
                 </div>

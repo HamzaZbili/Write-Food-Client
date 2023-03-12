@@ -6,28 +6,29 @@ import edit from "../icons/edit.svg";
 import Input from "./Input";
 import "./updateArticle.css";
 import service from "../auth/service";
+import { formatDate } from "../../utils/dateFormat";
 
 const UpdateArticle = ({ article, updateListedArticles }) => {
   const [updatePopUp, setUpdatePopup] = useState(false);
   const popUpForm = useRef();
   const [error, setError] = useState(null);
   const [formData, setFormData] = useState({
-    title: "",
-    city: "",
-    publicationDate: "",
-    publisher: "publisher",
-    other: "",
-    link: "",
+    title: article.title,
+    city: article.city,
+    publicationDate: article.publicationDate,
+    publisher: article.publisher,
+    other: article.other,
+    link: article.link,
     // categories
-    lifestyle: false,
-    guide: false,
-    review: false,
-    recipe: false,
-    seasonal: false,
+    lifestyle: article.category?.lifestyle,
+    guide: article.category?.guide,
+    review: article.category?.review,
+    recipe: article.category?.recipe,
+    seasonal: article.category?.seasonal,
   });
 
   function handleClick() {
-    console.log(article);
+    console.log(formData.publicationDate);
     setUpdatePopup(!updatePopUp);
     if (!updatePopUp) {
       setUpdatePopup(true);
@@ -38,7 +39,7 @@ const UpdateArticle = ({ article, updateListedArticles }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await service.patch(`/articles/update/${article.id}`, formData);
+      await service.patch(`/articles/update/${article._id}`, formData);
       updateListedArticles();
       setUpdatePopup(false);
     } catch (error) {

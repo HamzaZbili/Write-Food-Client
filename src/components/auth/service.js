@@ -6,9 +6,11 @@ const service = axios.create({
 });
 
 service.interceptors.request.use((config) => {
+  config.headers["Access-Control-Allow-Origin"] =
+    "http://rachelnaismith.com.s3-website.eu-west-2.amazonaws.com/";
   const token = localStorage.getItem("authToken");
   config.headers.Authorization = token ? `Bearer ${token}` : "";
-  return config;
+  return config, (error) => Promise.reject(error);
 });
 
 service.isLoggedIn = async () => {

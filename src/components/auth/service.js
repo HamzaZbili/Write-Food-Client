@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const service = axios.create({
-  baseURL: process.env.REACT_APP_API_URL,
+  baseURL: "http://3.11.122.105",
   withCredentials: true,
 });
 

@@ -18,7 +18,7 @@
     "build": "react-scripts build && echo '/* /index.html 200' | cat >build/_redirects ",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "sync": "aws s3 sync ./build s3://rachelnaismith.com/"
+    "sync": "aws s3 sync ./build s3://rachelnaismith.com"
   },
   "eslintConfig": {
     "extends": [

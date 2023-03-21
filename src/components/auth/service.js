@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const service = axios.create({
-  baseURL: "http://3.11.122.105",
+  baseURL: "3.11.122.105",
   withCredentials: true,
 });
 

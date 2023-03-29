@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import service from "../auth/service";
+import ArticleSearchForm from "../forms/ArticleSearchForm";
 import ArticleCard from "./ArticleCard";
+
 import "./homeFeed.css";
 import LoadingDots from "./LoadingDots";
 
@@ -28,6 +30,7 @@ const HomeFeed = () => {
   return (
     <>
       <h2 className="homeFeedTitle">lastest work</h2>
+      <ArticleSearchForm />
       <div className="homeFeed">
         {allArticles?.map((article) => {
           return <ArticleCard article={article} key={article._id} />;

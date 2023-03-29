@@ -28,7 +28,7 @@ function Navbar() {
         <Link to="/" onClick={showNavbar} className="navBarLink">
           home
         </Link>
-        <DropDownMenu showNavbar={showNavbar} />
+        {/* <DropDownMenu showNavbar={showNavbar} /> */}
         <Link to="/about" onClick={showNavbar} className="navBarLink">
           about
         </Link>

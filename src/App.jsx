@@ -8,7 +8,6 @@ import Signin from "./components/forms/SignIn";
 import PrivateRoute from "./components/auth/PrivateRoute";
 import AddNewArticle from "./components/forms/AddNewArticle";
 import ManageArticles from "./components/pages/ManageArticles";
-import SearchResult from "./components/pages/SearchResult";
 import AboutMe from "./components/pages/AboutMe";
 import Contact from "./components/pages/Contact";
 import SignUp from "./components/forms/SignUp";
@@ -19,7 +18,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<HomePage />} />
-          <Route path="/search/:search" element={<SearchResult />} />
           <Route path="/about" element={<AboutMe />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/backdoor" element={<Signin />} />

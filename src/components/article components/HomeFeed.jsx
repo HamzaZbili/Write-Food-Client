@@ -11,26 +11,41 @@ const HomeFeed = () => {
   const [alreadyLoaded, setAlreadyLoaded] = useState(6);
   const [loadMore, setLoadMore] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [searchParams, setSearchParams] = useState({});
+
+  const handleSearchParamsChange = (newSearchParams) => {
+    setSearchParams(() => newSearchParams);
+  };
 
   useEffect(() => {
-    service.get("/articles").then((response) => {
+    async function fetchData() {
+      const response = await service.get(
+        "/articles?",
+        new URLSearchParams({ ...searchParams })
+      );
       setAllArticles(response.data);
-    });
-  }, []);
+    }
+    fetchData();
+  }, [searchParams]);
 
   const handleClick = () => {
     setIsLoading(true);
-    service.get(`/articles/more/${alreadyLoaded}`).then((response) => {
+    async function loadMoreResults() {
+      const response = await service.get(
+        `/articles/more/?${alreadyLoaded}`,
+        new URLSearchParams({ ...searchParams })
+      );
       setLoadMore([...loadMore, ...response.data]);
-      setAlreadyLoaded(alreadyLoaded + 3);
-      setIsLoading(false);
-    });
+    }
+    loadMoreResults();
+    setAlreadyLoaded(alreadyLoaded + 3);
+    setIsLoading(false);
   };
 
   return (
     <>
       <h2 className="homeFeedTitle">lastest work</h2>
-      <ArticleSearchForm />
+      <ArticleSearchForm handleSearchParamsChange={handleSearchParamsChange} />
       <div className="homeFeed">
         {allArticles?.map((article) => {
           return <ArticleCard article={article} key={article._id} />;

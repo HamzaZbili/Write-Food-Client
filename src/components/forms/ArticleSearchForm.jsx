@@ -1,68 +1,22 @@
 import React, { useState } from "react";
-import axios from "axios";
 
-const Checkbox = ({ label, checked, onChange }) => (
-  <label>
-    <input type="checkbox" checked={checked} onChange={onChange} />
-    {label}
-  </label>
-);
-
-const Select = ({ value, onChange, options }) => (
-  <select value={value} onChange={onChange}>
-    {options.map((option) => (
-      <option key={option} value={option}>
-        {option}
-      </option>
-    ))}
-  </select>
-);
-
-const ArticleList = ({ articles }) => (
-  <ul>
-    {articles.map((article) => (
-      <li key={article._id}>{article.title}</li>
-    ))}
-  </ul>
-);
-
-const ArticleSearch = () => {
-  const [category, setCategory] = useState({
-    lifestyle: false,
-    guide: false,
-    review: false,
-    recipe: false,
-    seasonal: false,
-  });
-  const [publisher, setPublisher] = useState({
-    HiPParis: false,
-    Dishcult: false,
-    Palate: false,
-  });
-  const [city, setCity] = useState({
-    Paris: false,
-    London: false,
-    Edinburgh: false,
-    Glasgow: false,
-    Dublin: false,
-  });
-  const [order, setOrder] = useState("desc");
+const ArticleForm = ({ handleSearchParamsChange }) => {
+  const [category, setCategory] = useState("");
+  const [publisher, setPublisher] = useState("");
+  const [city, setCity] = useState("");
+  const [order, setOrder] = useState("");
   const [search, setSearch] = useState("");
-  const [articles, setArticles] = useState([]);
 
   const handleCategoryChange = (event) => {
-    const { name, checked } = event.target;
-    setCategory((prevState) => ({ ...prevState, [name]: checked }));
+    setCategory(event.target.value);
   };
 
   const handlePublisherChange = (event) => {
-    const { name, checked } = event.target;
-    setPublisher((prevState) => ({ ...prevState, [name]: checked }));
+    setPublisher(event.target.value);
   };
 
   const handleCityChange = (event) => {
-    const { name, checked } = event.target;
-    setCity((prevState) => ({ ...prevState, [name]: checked }));
+    setCity(event.target.value);
   };
 
   const handleOrderChange = (event) => {
@@ -73,96 +27,75 @@ const ArticleSearch = () => {
     setSearch(event.target.value);
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
 
-    const selectedCategories = Object.entries(category)
-      .filter(([_, checked]) => checked)
-      .map(([category, _]) => category)
-      .join(",");
+    const query = {};
 
-    const selectedPublishers = Object.entries(publisher)
-      .filter(([_, checked]) => checked)
-      .map(([publisher, _]) => publisher);
-
-    const selectedCities = Object.entries(city)
-      .filter(([_, checked]) => checked)
-      .map(([city, _]) => city);
-
-    try {
-      const { data } = await axios.get("/articles", {
-        params: {
-          category: selectedCategories,
-          publisher: selectedPublishers,
-          city: selectedCities,
-          order,
-          search,
-        },
-      });
-
-      setArticles(data);
-    } catch (error) {
-      console.error(error);
+    if (category) {
+      query.category = category;
     }
+
+    if (publisher) {
+      query.publisher = publisher;
+    }
+
+    if (city) {
+      query.city = city;
+    }
+
+    if (order) {
+      query.order = order;
+    }
+
+    if (search) {
+      query.search = search;
+    }
+
+    handleSearchParamsChange(query);
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <fieldset>
-          <legend>Category</legend>
-          {Object.entries(category).map(([name, checked]) => (
-            <Checkbox
-              key={name}
-              label={name}
-              checked={checked}
-              onChange={handleCategoryChange}
-              name={name}
-            />
-          ))}
-        </fieldset>
-        <fieldset>
-          <legend>Publisher</legend>
-          {Object.entries(publisher).map(([name, checked]) => (
-            <Checkbox
-              key={name}
-              label={name}
-              checked={checked}
-              onChange={handlePublisherChange}
-              name={name}
-            />
-          ))}
-        </fieldset>
-        <fieldset>
-          <legend>City</legend>
-          {Object.entries(city).map(([name, checked]) => (
-            <Checkbox
-              key={name}
-              label={name}
-              checked={checked}
-              onChange={handleCityChange}
-              name={name}
-            />
-          ))}
-        </fieldset>
-        <fieldset>
-          <legend>Sort By</legend>
-          <Select
-            value={order}
-            onChange={handleOrderChange}
-            options={["desc", "asc"]}
-          />
-        </fieldset>
-        <fieldset>
-          <legend>Search</legend>
-          <input type="text" value={search} onChange={handleSearchChange} />
-        </fieldset>
-        <button type="submit">Search</button>
-      </form>
-
-      <ArticleList articles={articles} />
-    </div>
+    <form onSubmit={handleSubmit}>
+      <label>
+        Category:
+        <select value={category} onChange={handleCategoryChange}>
+          <option value="">category</option>
+          <option value="lifestyle">lifestyle</option>
+          <option value="guide">guides</option>
+          <option value="review">reviews</option>
+          <option value="recipe">recipes</option>
+          <option value="seasonal">seasonal</option>
+        </select>
+      </label>
+      <br />
+      <label>
+        Publisher:
+        <input type="text" value={publisher} onChange={handlePublisherChange} />
+      </label>
+      <br />
+      <label>
+        City:
+        <input type="text" value={city} onChange={handleCityChange} />
+      </label>
+      <br />
+      <label>
+        Order:
+        <select value={order} onChange={handleOrderChange}>
+          <option value="">Select an option</option>
+          <option value="asc">Ascending</option>
+          <option value="desc">Descending</option>
+        </select>
+      </label>
+      <br />
+      <label>
+        Search:
+        <input type="text" value={search} onChange={handleSearchChange} />
+      </label>
+      <br />
+      <button type="submit">Search</button>
+    </form>
   );
 };
 
-export default ArticleSearch;
+export default ArticleForm;

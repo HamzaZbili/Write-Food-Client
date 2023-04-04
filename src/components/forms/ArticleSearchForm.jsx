@@ -14,7 +14,8 @@ const ArticleForm = ({ handleSearchParamsChange }) => {
 
   const handleCategoryChange = (event) => {
     const cat = event.target.value;
-    setCategory((prevState) => ({ ...prevState, [cat]: !prevState.cat }));
+    const checked = event.target.checked;
+    setCategory((prevState) => ({ ...prevState, [cat]: checked }));
   };
 
   const handleCityChange = (event) => {
@@ -34,15 +35,13 @@ const ArticleForm = ({ handleSearchParamsChange }) => {
     // build query from form
     const query = {};
 
-    const selectedCategories = [];
+    const selectedCategories = Object.keys(category).filter(
+      (cat) => category[cat]
+    );
 
-    Object.keys(category).map((cat) => {
-      if (category[cat]) {
-        selectedCategories.push(cat);
-      }
-    });
-
-    query.category = selectedCategories;
+    if (selectedCategories.length > 0) {
+      query.category = selectedCategories;
+    }
 
     if (city) {
       query.city = city;
@@ -60,68 +59,60 @@ const ArticleForm = ({ handleSearchParamsChange }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>
-        Category:
-        <br />
-        <input
-          type="checkbox"
-          name="category"
-          value="lifestyle"
-          onChange={(e) => handleCategoryChange(e)}
-        />
-        Lifestyle
-        <br />
-        <input
-          type="checkbox"
-          name="category"
-          value="guide"
-          onChange={(e) => handleCategoryChange(e)}
-        />
-        Guide
-        <br />
-        <input
-          type="checkbox"
-          name="category"
-          value="review"
-          onChange={(e) => handleCategoryChange(e)}
-        />
-        Review
-        <br />
-        <input
-          type="checkbox"
-          name="category"
-          value="recipe"
-          onChange={(e) => handleCategoryChange(e)}
-        />
-        Recipe
-        <br />
-        <input
-          type="checkbox"
-          name="category"
-          value="seasonal"
-          onChange={(e) => handleCategoryChange(e)}
-        />
-        Seasonal
-      </label>
+      Category:
       <br />
-      <label>
-        City:
-        <input type="text" value={city} onChange={handleCityChange} />
-      </label>
+      <input
+        type="checkbox"
+        name="category"
+        value="lifestyle"
+        onChange={(e) => handleCategoryChange(e)}
+      />
+      Lifestyle
       <br />
-      <label>
-        Order:
-        <select value={order} onChange={handleOrderChange}>
-          <option value="">Select an option</option>
-          <option value="asc">Ascending</option>
-          <option value="desc">Descending</option>
-        </select>
-      </label>
+      <input
+        type="checkbox"
+        name="category"
+        value="guide"
+        onChange={(e) => handleCategoryChange(e)}
+      />
+      Guide
       <br />
-      <label>
-        Search:
-        <input type="text" value={search} onChange={handleSearchChange} />
-      </label>
+      <input
+        type="checkbox"
+        name="category"
+        value="review"
+        onChange={(e) => handleCategoryChange(e)}
+      />
+      Review
+      <br />
+      <input
+        type="checkbox"
+        name="category"
+        value="recipe"
+        onChange={(e) => handleCategoryChange(e)}
+      />
+      Recipe
+      <br />
+      <input
+        type="checkbox"
+        name="category"
+        value="seasonal"
+        onChange={(e) => handleCategoryChange(e)}
+      />
+      Seasonal
+      <br />
+      City:
+      <input type="text" value={city} onChange={handleCityChange} />
+      <br />
+      Order:
+      <select value={order} onChange={handleOrderChange}>
+        <option value="">Select an option</option>
+        <option value="asc">Ascending</option>
+        <option value="desc">Descending</option>
+      </select>
+      <br />
+      Search:
+      <input type="text" value={search} onChange={handleSearchChange} />
       <br />
       <button type="submit">Search</button>
     </form>

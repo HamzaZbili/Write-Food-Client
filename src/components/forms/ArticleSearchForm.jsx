@@ -54,9 +54,8 @@ const ArticleForm = ({ handleSearchParamsChange }) => {
     }
 
     if (search) {
-      query.search = search;
+      query.title = search;
     }
-    console.log(query);
     handleSearchParamsChange(query);
   };
 
@@ -66,11 +65,9 @@ const ArticleForm = ({ handleSearchParamsChange }) => {
       <br />
       <CitiesSearch handleCityChange={handleCityChange} />
       <br />
-      Order:
       <select value={order} onChange={handleOrderChange}>
-        <option value="">Select an option</option>
-        <option value="asc">Ascending</option>
-        <option value="desc">Descending</option>
+        <option value="asc">sort by newest</option>
+        <option value="desc">sort by oldest</option>
       </select>
       <br />
       Search:

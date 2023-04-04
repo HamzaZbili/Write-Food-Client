@@ -18,15 +18,27 @@ const HomeFeed = () => {
   };
 
   useEffect(() => {
+    console.log(searchParams);
     let categoryQuery = "";
+    let cityQuery = "";
+    let orderQuery = "";
+    let titleQuery = "";
     if (searchParams?.category) {
-      categoryQuery = `?category=${searchParams.category}`;
+      categoryQuery = `&category=${searchParams.category}`;
     }
     if (searchParams?.city) {
-      categoryQuery = `?city=${searchParams.city}`;
+      cityQuery = `&city=${searchParams.city}`;
+    }
+    if (searchParams?.order) {
+      orderQuery = `&order=${searchParams.order}`;
+    }
+    if (searchParams?.title) {
+      titleQuery = `&search=${searchParams.title}`;
     }
     async function fetchData() {
-      const response = await service.get("/articles" + categoryQuery);
+      const response = await service.get(
+        "/articles?" + categoryQuery + cityQuery + orderQuery + titleQuery
+      );
       setAllArticles(response.data);
     }
     fetchData();

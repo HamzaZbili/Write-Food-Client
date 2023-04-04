@@ -1,18 +1,20 @@
 import React, { useState } from "react";
 
 const ArticleForm = ({ handleSearchParamsChange }) => {
-  const [category, setCategory] = useState("");
-  const [publisher, setPublisher] = useState("");
+  const [category, setCategory] = useState({
+    lifestyle: false,
+    guide: false,
+    review: false,
+    recipe: false,
+    seasonal: false,
+  });
   const [city, setCity] = useState("");
   const [order, setOrder] = useState("");
   const [search, setSearch] = useState("");
 
   const handleCategoryChange = (event) => {
-    setCategory(event.target.value);
-  };
-
-  const handlePublisherChange = (event) => {
-    setPublisher(event.target.value);
+    const cat = event.target.value;
+    setCategory((prevState) => ({ ...prevState, [cat]: !prevState.cat }));
   };
 
   const handleCityChange = (event) => {
@@ -29,16 +31,18 @@ const ArticleForm = ({ handleSearchParamsChange }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
+    // build query from form
     const query = {};
 
-    if (category) {
-      query.category = category;
-    }
+    const selectedCategories = [];
 
-    if (publisher) {
-      query.publisher = publisher;
-    }
+    Object.keys(category).map((cat) => {
+      if (category[cat]) {
+        selectedCategories.push(cat);
+      }
+    });
+
+    query.category = selectedCategories;
 
     if (city) {
       query.city = city;
@@ -51,7 +55,6 @@ const ArticleForm = ({ handleSearchParamsChange }) => {
     if (search) {
       query.search = search;
     }
-
     handleSearchParamsChange(query);
   };
 
@@ -59,19 +62,46 @@ const ArticleForm = ({ handleSearchParamsChange }) => {
     <form onSubmit={handleSubmit}>
       <label>
         Category:
-        <select value={category} onChange={handleCategoryChange}>
-          <option value="">category</option>
-          <option value="lifestyle">lifestyle</option>
-          <option value="guide">guides</option>
-          <option value="review">reviews</option>
-          <option value="recipe">recipes</option>
-          <option value="seasonal">seasonal</option>
-        </select>
-      </label>
-      <br />
-      <label>
-        Publisher:
-        <input type="text" value={publisher} onChange={handlePublisherChange} />
+        <br />
+        <input
+          type="checkbox"
+          name="category"
+          value="lifestyle"
+          onChange={(e) => handleCategoryChange(e)}
+        />
+        Lifestyle
+        <br />
+        <input
+          type="checkbox"
+          name="category"
+          value="guide"
+          onChange={(e) => handleCategoryChange(e)}
+        />
+        Guide
+        <br />
+        <input
+          type="checkbox"
+          name="category"
+          value="review"
+          onChange={(e) => handleCategoryChange(e)}
+        />
+        Review
+        <br />
+        <input
+          type="checkbox"
+          name="category"
+          value="recipe"
+          onChange={(e) => handleCategoryChange(e)}
+        />
+        Recipe
+        <br />
+        <input
+          type="checkbox"
+          name="category"
+          value="seasonal"
+          onChange={(e) => handleCategoryChange(e)}
+        />
+        Seasonal
       </label>
       <br />
       <label>

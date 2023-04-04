@@ -11,18 +11,22 @@ const HomeFeed = () => {
   const [alreadyLoaded, setAlreadyLoaded] = useState(6);
   const [loadMore, setLoadMore] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [searchParams, setSearchParams] = useState({});
+  const [searchParams, setSearchParams] = useState("");
 
   const handleSearchParamsChange = (newSearchParams) => {
     setSearchParams(() => newSearchParams);
   };
 
   useEffect(() => {
+    let categoryQuery = "";
+    if (searchParams?.category) {
+      categoryQuery = `?category=${searchParams.category}`;
+    }
+    if (searchParams?.city) {
+      categoryQuery = `?city=${searchParams.city}`;
+    }
     async function fetchData() {
-      const response = await service.get(
-        "/articles?",
-        new URLSearchParams({ ...searchParams })
-      );
+      const response = await service.get("/articles" + categoryQuery);
       setAllArticles(response.data);
     }
     fetchData();

@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import CategorySearch from "./searchInputFields/CategorySearch";
+import CitiesSearch from "./searchInputFields/CitiesSearch";
 
 const ArticleForm = ({ handleSearchParamsChange }) => {
   const [category, setCategory] = useState({
@@ -54,55 +56,15 @@ const ArticleForm = ({ handleSearchParamsChange }) => {
     if (search) {
       query.search = search;
     }
+    console.log(query);
     handleSearchParamsChange(query);
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      Category:
+      <CategorySearch handleCategoryChange={handleCategoryChange} />
       <br />
-      <input
-        type="checkbox"
-        name="category"
-        value="lifestyle"
-        onChange={(e) => handleCategoryChange(e)}
-      />
-      Lifestyle
-      <br />
-      <input
-        type="checkbox"
-        name="category"
-        value="guide"
-        onChange={(e) => handleCategoryChange(e)}
-      />
-      Guide
-      <br />
-      <input
-        type="checkbox"
-        name="category"
-        value="review"
-        onChange={(e) => handleCategoryChange(e)}
-      />
-      Review
-      <br />
-      <input
-        type="checkbox"
-        name="category"
-        value="recipe"
-        onChange={(e) => handleCategoryChange(e)}
-      />
-      Recipe
-      <br />
-      <input
-        type="checkbox"
-        name="category"
-        value="seasonal"
-        onChange={(e) => handleCategoryChange(e)}
-      />
-      Seasonal
-      <br />
-      City:
-      <input type="text" value={city} onChange={handleCityChange} />
+      <CitiesSearch handleCityChange={handleCityChange} />
       <br />
       Order:
       <select value={order} onChange={handleOrderChange}>

@@ -3,47 +3,56 @@ import React from "react";
 const CategorySearch = ({ handleCategoryChange }) => {
   return (
     <div>
-      Category:
       <br />
-      <input
-        type="checkbox"
-        name="category"
-        value="lifestyle"
-        onChange={(e) => handleCategoryChange(e)}
-      />
-      Lifestyle
+      <label>
+        <input
+          type="checkbox"
+          name="category"
+          value="lifestyle"
+          onChange={(e) => handleCategoryChange(e)}
+        />
+        lifestyle
+      </label>
       <br />
-      <input
-        type="checkbox"
-        name="category"
-        value="guide"
-        onChange={(e) => handleCategoryChange(e)}
-      />
-      Guide
+      <label>
+        <input
+          type="checkbox"
+          name="category"
+          value="guide"
+          onChange={(e) => handleCategoryChange(e)}
+        />
+        guide
+      </label>
       <br />
-      <input
-        type="checkbox"
-        name="category"
-        value="review"
-        onChange={(e) => handleCategoryChange(e)}
-      />
-      Review
+      <label>
+        <input
+          type="checkbox"
+          name="category"
+          value="review"
+          onChange={(e) => handleCategoryChange(e)}
+        />
+        review
+      </label>
       <br />
-      <input
-        type="checkbox"
-        name="category"
-        value="recipe"
-        onChange={(e) => handleCategoryChange(e)}
-      />
-      Recipe
+      <label>
+        <input
+          type="checkbox"
+          name="category"
+          value="recipe"
+          onChange={(e) => handleCategoryChange(e)}
+        />
+        recipe
+      </label>
       <br />
-      <input
-        type="checkbox"
-        name="category"
-        value="seasonal"
-        onChange={(e) => handleCategoryChange(e)}
-      />
-      Seasonal
+      <label>
+        <input
+          type="checkbox"
+          name="category"
+          value="seasonal"
+          onChange={(e) => handleCategoryChange(e)}
+        />
+        seasonal
+      </label>
     </div>
   );
 };

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import CategorySearch from "./searchInputFields/CategorySearch";
 import CitiesSearch from "./searchInputFields/CitiesSearch";
+import Order from "./searchInputFields/Order";
+import TitleSearch from "./searchInputFields/TitleSearch";
 
 const ArticleForm = ({ handleSearchParamsChange }) => {
   const [category, setCategory] = useState({
@@ -14,6 +16,7 @@ const ArticleForm = ({ handleSearchParamsChange }) => {
   const [order, setOrder] = useState("");
   const [search, setSearch] = useState("");
 
+  // form change handlers
   const handleCategoryChange = (event) => {
     const cat = event.target.value;
     const checked = event.target.checked;
@@ -62,18 +65,9 @@ const ArticleForm = ({ handleSearchParamsChange }) => {
   return (
     <form onSubmit={handleSubmit}>
       <CategorySearch handleCategoryChange={handleCategoryChange} />
-      <br />
       <CitiesSearch handleCityChange={handleCityChange} />
-      <br />
-      <select value={order} onChange={handleOrderChange}>
-        <option value="asc">sort by newest</option>
-        <option value="desc">sort by oldest</option>
-      </select>
-      <br />
-      Search:
-      <input type="text" value={search} onChange={handleSearchChange} />
-      <br />
-      <button type="submit">Search</button>
+      <Order handleOrderChange={handleOrderChange} />
+      <TitleSearch handleSearchChange={handleSearchChange} />
     </form>
   );
 };

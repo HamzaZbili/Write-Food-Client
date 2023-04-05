@@ -2,43 +2,28 @@ import React, { useEffect, useState } from "react";
 import service from "../auth/service";
 import ArticleSearchForm from "../forms/ArticleSearchForm";
 import ArticleCard from "./ArticleCard";
+import queryBuilder from "./queryBuilder";
 
 import "./homeFeed.css";
 import LoadingDots from "./LoadingDots";
 
 const HomeFeed = () => {
   const [allArticles, setAllArticles] = useState([]);
-  const [alreadyLoaded, setAlreadyLoaded] = useState(6);
+  const [alreadyLoaded, setAlreadyLoaded] = useState(8);
   const [loadMore, setLoadMore] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [searchParams, setSearchParams] = useState("");
+  const [searchPopUp, setSearchPopUp] = useState(false);
+  const [moreAvailable, setMoreAvailable] = useState(true);
 
   const handleSearchParamsChange = (newSearchParams) => {
     setSearchParams(() => newSearchParams);
   };
-
   useEffect(() => {
-    console.log(searchParams);
-    let categoryQuery = "";
-    let cityQuery = "";
-    let orderQuery = "";
-    let titleQuery = "";
-    if (searchParams?.category) {
-      categoryQuery = `&category=${searchParams.category}`;
-    }
-    if (searchParams?.city) {
-      cityQuery = `&city=${searchParams.city}`;
-    }
-    if (searchParams?.order) {
-      orderQuery = `&order=${searchParams.order}`;
-    }
-    if (searchParams?.title) {
-      titleQuery = `&search=${searchParams.title}`;
-    }
+    setMoreAvailable(true);
+    const completeQuery = queryBuilder(searchParams);
     async function fetchData() {
-      const response = await service.get(
-        "/articles?" + categoryQuery + cityQuery + orderQuery + titleQuery
-      );
+      const response = await service.get("/articles?" + completeQuery);
       setAllArticles(response.data);
     }
     fetchData();
@@ -46,22 +31,34 @@ const HomeFeed = () => {
 
   const handleClick = () => {
     setIsLoading(true);
+    const completeQuery = queryBuilder(searchParams);
     async function loadMoreResults() {
       const response = await service.get(
-        `/articles/more/?${alreadyLoaded}`,
-        new URLSearchParams({ ...searchParams })
+        `/articles/more/${alreadyLoaded}?` + completeQuery
       );
       setLoadMore([...loadMore, ...response.data]);
+      if (response.data.length === 0) {
+        setMoreAvailable(false);
+      }
     }
     loadMoreResults();
-    setAlreadyLoaded(alreadyLoaded + 3);
+    setAlreadyLoaded(alreadyLoaded + 4);
     setIsLoading(false);
   };
 
   return (
     <>
       <h2 className="homeFeedTitle">lastest work</h2>
-      <ArticleSearchForm handleSearchParamsChange={handleSearchParamsChange} />
+      {searchPopUp ? (
+        <div>
+          <div onClick={() => setSearchPopUp(false)}>close</div>
+          <ArticleSearchForm
+            handleSearchParamsChange={handleSearchParamsChange}
+          />
+        </div>
+      ) : (
+        <div onClick={() => setSearchPopUp(true)}>click to Search</div>
+      )}
       <div className="homeFeed">
         {allArticles?.map((article) => {
           return <ArticleCard article={article} key={article._id} />;
@@ -73,9 +70,15 @@ const HomeFeed = () => {
       {isLoading ? (
         <LoadingDots />
       ) : (
-        <button className="loadMoreButton" onClick={handleClick}>
-          more...
-        </button>
+        <div>
+          {moreAvailable ? (
+            <button className="loadMoreButton" onClick={handleClick}>
+              more
+            </button>
+          ) : (
+            <div>no more results</div>
+          )}
+        </div>
       )}
     </>
   );

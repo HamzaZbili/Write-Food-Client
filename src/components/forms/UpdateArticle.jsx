@@ -6,7 +6,6 @@ import edit from "../icons/edit.svg";
 import Input from "./Input";
 import "./updateArticle.css";
 import service from "../auth/service";
-import { formatDate } from "../../utils/dateFormat";
 
 const UpdateArticle = ({ article, updateListedArticles }) => {
   const [updatePopUp, setUpdatePopup] = useState(false);

@@ -3,7 +3,6 @@ import React from "react";
 const CitiesSearch = ({ handleCityChange }) => {
   return (
     <div>
-      City:
       <select type="text" onChange={handleCityChange}>
         <option value="">all cities</option>
         <option value="Paris">Paris</option>

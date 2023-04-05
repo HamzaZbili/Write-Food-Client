@@ -1,10 +1,10 @@
 .articleContainer {
-  width: 28vw;
+  width: 22vw;
   margin: 1.5vw;
 }
 
 .articleCard {
-  width: 28vw;
+  width: 22vw;
   aspect-ratio: 1/1;
   background-size: cover;
   background-repeat: no-repeat;
@@ -56,11 +56,11 @@
 
 @media only screen and (max-width: 700px) {
   .articleContainer {
-    width: 40vw;
+    width: 28vw;
   }
 
   .articleCard {
-    width: 40vw;
+    width: 28vw;
   }
 }
 

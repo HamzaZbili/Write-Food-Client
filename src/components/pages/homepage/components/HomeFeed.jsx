@@ -4,6 +4,7 @@ import ArticleSearchForm from "../forms/ArticleSearchForm";
 import ArticleCard from "./ArticleCard";
 import queryBuilder from "./queryBuilder";
 import LoadingDots from "./LoadingDots";
+import magnifyingGlass from "../../../icons/magnifyingGlass.svg";
 import "./homeFeed.css";
 
 const HomeFeed = () => {
@@ -26,13 +27,6 @@ const HomeFeed = () => {
       setAllArticles(response.data);
     }
     fetchData();
-    // add event listener for clicks outside of component
-    window.addEventListener("click", handleClickOutside);
-
-    // cleanup function to remove event listener
-    return () => {
-      window.removeEventListener("click", handleClickOutside);
-    };
   }, [searchParams]);
 
   const handleClick = () => {
@@ -51,21 +45,21 @@ const HomeFeed = () => {
     setAlreadyLoaded(alreadyLoaded + 4);
     setIsLoading(false);
   };
-  const handleClickOutside = (event) => {
-    // check if click is outside of component
-    const formContainer = document.querySelector(".articleSearchFormContainer");
-    if (formContainer && !formContainer.contains(event.target)) {
-      setSearchPopUp(false);
-    }
-  };
 
+  function togglePopUp() {
+    if (searchPopUp) {
+      setSearchPopUp(false);
+    } else {
+      setSearchPopUp(true);
+    }
+  }
   return (
     <>
       <h2 className="homeFeedTitle">lastest work</h2>
       <div className="articleSearchFormContainer">
         {searchPopUp ? (
           <div>
-            <div onClick={() => setSearchPopUp(false)}>close</div>
+            <div onClick={togglePopUp}>close</div>
             <div className="articleSearchForm">
               <ArticleSearchForm
                 handleSearchParamsChange={handleSearchParamsChange}
@@ -73,7 +67,9 @@ const HomeFeed = () => {
             </div>
           </div>
         ) : (
-          <div onClick={() => setSearchPopUp(true)}>click to Search</div>
+          <div onClick={togglePopUp}>
+            <img src={magnifyingGlass} alt="search" />
+          </div>
         )}
       </div>
 

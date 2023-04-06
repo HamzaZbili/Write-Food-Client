@@ -49,16 +49,21 @@ const HomeFeed = () => {
   return (
     <>
       <h2 className="homeFeedTitle">lastest work</h2>
-      {searchPopUp ? (
-        <div>
-          <div onClick={() => setSearchPopUp(false)}>close</div>
-          <ArticleSearchForm
-            handleSearchParamsChange={handleSearchParamsChange}
-          />
-        </div>
-      ) : (
-        <div onClick={() => setSearchPopUp(true)}>click to Search</div>
-      )}
+      <div className="articleSearchFormContainer">
+        {searchPopUp ? (
+          <div>
+            <div onClick={() => setSearchPopUp(false)}>close</div>
+            <div className="articleSearchForm">
+              <ArticleSearchForm
+                handleSearchParamsChange={handleSearchParamsChange}
+              />
+            </div>
+          </div>
+        ) : (
+          <div onClick={() => setSearchPopUp(true)}>click to Search</div>
+        )}
+      </div>
+
       <div className="homeFeed">
         {allArticles?.map((article) => {
           return <ArticleCard article={article} key={article._id} />;

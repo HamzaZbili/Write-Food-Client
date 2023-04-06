@@ -1,15 +1,15 @@
 import { Routes, Route } from "react-router-dom";
 import React from "react";
 import "./app.css";
-import HomePage from "./components/pages/HomePage";
-import Oops from "./components/pages/oops";
+import HomePage from "./components/pages/homepage/HomePage";
+import Oops from "./components/pages/error/oops";
 import Layout from "./components/global/Layout";
 import Signin from "./components/forms/SignIn";
 import PrivateRoute from "./components/auth/PrivateRoute";
-import AddNewArticle from "./components/forms/AddNewArticle";
-import ManageArticles from "./components/pages/ManageArticles";
-import AboutMe from "./components/pages/AboutMe";
-import Contact from "./components/pages/Contact";
+import AddNewArticle from "./components/pages/admin/AddNewArticle";
+import ManageArticles from "./components/pages/admin/ManageArticles";
+import AboutMe from "./components/pages/aboutme/AboutMe";
+import Contact from "./components/pages/contact/Contact";
 import SignUp from "./components/forms/SignUp";
 
 function App() {

@@ -1,6 +1,6 @@
 import React from "react";
 import "./homePage.css";
-import HomeFeed from "../article components/HomeFeed";
+import HomeFeed from "./components/HomeFeed";
 import { Link } from "react-router-dom";
 
 const HomePage = () => {

@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { useCallback } from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import ArticleAdmin from "../article components/ArticleAdmin";
-import service from "../auth/service";
-import BackButton from "../global/BackButton";
+import AdminCard from "./components/AdminCard";
+import service from "../../auth/service";
+import BackButton from "../../global/BackButton";
 import "./manageArticles.css";
 
 const ManageArticles = () => {
@@ -27,15 +27,15 @@ const ManageArticles = () => {
 
   return (
     <>
-    <h2 className="adminHeader"> admin</h2>
-    <BackButton/>
+      <h2 className="adminHeader"> admin</h2>
+      <BackButton />
       <button className="postNewArticle" onClick={() => navigate("/new")}>
         post new article
       </button>
       <div className="articleAdminContainer">
         {allArticles.map((article) => {
           return (
-            <ArticleAdmin
+            <AdminCard
               key={article._id}
               article={article}
               updateListedArticles={updateListedArticles}

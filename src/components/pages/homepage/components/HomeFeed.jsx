@@ -1,11 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
-import service from "../auth/service";
+import React, { useEffect, useState } from "react";
+import service from "../../../auth/service";
 import ArticleSearchForm from "../forms/ArticleSearchForm";
 import ArticleCard from "./ArticleCard";
 import queryBuilder from "./queryBuilder";
-
-import "./homeFeed.css";
 import LoadingDots from "./LoadingDots";
+import "./homeFeed.css";
 
 const HomeFeed = () => {
   const [allArticles, setAllArticles] = useState([]);

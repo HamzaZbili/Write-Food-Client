@@ -1,11 +1,11 @@
 import React, { useRef } from "react";
 import { useState } from "react";
-import Cross from "../global/Cross";
+import Cross from "../../../global/Cross";
 import { fields, checkBoxes } from "./articleFields.js";
-import edit from "../icons/edit.svg";
+import edit from "../../../icons/edit.svg";
 import Input from "./Input";
+import service from "../../../auth/service";
 import "./updateArticle.css";
-import service from "../auth/service";
 
 const UpdateArticle = ({ article, updateListedArticles }) => {
   const [updatePopUp, setUpdatePopup] = useState(false);

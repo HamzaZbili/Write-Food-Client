@@ -1,6 +1,6 @@
 import React from "react";
-import "./articleAdmin.css";
-import { formatDate } from "../../utils/dateFormat";
+import "./AdminCard.css";
+import { formatDate } from "../../../../utils/dateFormat";
 import DeleteArticle from "../forms/DeleteArticle";
 import UpdateArticle from "../forms/UpdateArticle";
 

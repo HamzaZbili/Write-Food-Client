@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import service from "../auth/service";
+import service from "../../../auth/service";
 import "./deleteArticle.css";
-import bin from "../icons/bin.svg";
+import bin from "../../../icons/bin.svg";
 
 const DeleteArticle = ({ id, updateListedArticles }) => {
   const navigate = useNavigate();

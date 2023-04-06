@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import lottie from "lottie-web";
-import loading from "../icons/loading.json";
+import loading from "../../../icons/loading.json";
 import "./loadingDots.css";
 
 function LoadingDots() {

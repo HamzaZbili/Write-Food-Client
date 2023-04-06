@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import service from "../auth/service";
 import ArticleSearchForm from "../forms/ArticleSearchForm";
 import ArticleCard from "./ArticleCard";
@@ -27,6 +27,13 @@ const HomeFeed = () => {
       setAllArticles(response.data);
     }
     fetchData();
+    // add event listener for clicks outside of component
+    window.addEventListener("click", handleClickOutside);
+
+    // cleanup function to remove event listener
+    return () => {
+      window.removeEventListener("click", handleClickOutside);
+    };
   }, [searchParams]);
 
   const handleClick = () => {
@@ -44,6 +51,13 @@ const HomeFeed = () => {
     loadMoreResults();
     setAlreadyLoaded(alreadyLoaded + 4);
     setIsLoading(false);
+  };
+  const handleClickOutside = (event) => {
+    // check if click is outside of component
+    const formContainer = document.querySelector(".articleSearchFormContainer");
+    if (formContainer && !formContainer.contains(event.target)) {
+      setSearchPopUp(false);
+    }
   };
 
   return (

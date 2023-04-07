@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useTransition, animated } from "react-spring";
 import service from "../../../auth/service";
 import ArticleSearchForm from "../forms/ArticleSearchForm";
 import ArticleCard from "./ArticleCard";
@@ -12,8 +13,8 @@ const HomeFeed = () => {
   const [alreadyLoaded, setAlreadyLoaded] = useState(8);
   const [loadMore, setLoadMore] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [isSearchForm, setIsSearchForm] = useState(false);
   const [searchParams, setSearchParams] = useState("");
-  const [searchPopUp, setSearchPopUp] = useState(false);
   const [moreAvailable, setMoreAvailable] = useState(true);
 
   const handleSearchParamsChange = (newSearchParams) => {
@@ -46,35 +47,38 @@ const HomeFeed = () => {
     setIsLoading(false);
   };
 
-  function togglePopUp() {
-    if (searchPopUp) {
-      setSearchPopUp(false);
-    } else {
-      setSearchPopUp(true);
-    }
-  }
+  const transition = useTransition(isSearchForm, {
+    from: { width: 0, height: 0, opacity: 0 },
+    enter: { width: 200, height: 230, opacity: 1 },
+    leave: { width: 0, height: 0, opacity: 0 },
+  });
+
   return (
     <>
       <div className="homeFeedHeader">
         <h2 className="homeFeedTitle">lastest work</h2>
         <div>
-          {searchPopUp ? (
-            <div>
-              <div onClick={togglePopUp}>close</div>
-              <div className="articleSearchForm">
-                <ArticleSearchForm
-                  handleSearchParamsChange={handleSearchParamsChange}
-                />
-              </div>
-            </div>
-          ) : (
-            <div onClick={togglePopUp}>
-              <img src={magnifyingGlass} alt="search" />
-            </div>
-          )}
+          <img
+            src={magnifyingGlass}
+            alt="search"
+            onClick={() => setIsSearchForm((v) => !v)}
+            className="magnifyingGlass"
+          />
+          <div>
+            {transition((style, articleSearchForm) =>
+              articleSearchForm ? (
+                <animated.div className="articleSearchForm" style={style}>
+                  <ArticleSearchForm
+                    handleSearchParamsChange={handleSearchParamsChange}
+                  />
+                </animated.div>
+              ) : (
+                ""
+              )
+            )}
+          </div>
         </div>
       </div>
-
       <div className="homeFeed">
         {allArticles?.map((article) => {
           return <ArticleCard article={article} key={article._id} />;

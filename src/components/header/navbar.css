@@ -113,6 +113,7 @@ nav {
   header .responsive_nav {
     transform: none;
     opacity: 1;
+    z-index: 3;
   }
   header .responsive_nav a {
     transform: none;

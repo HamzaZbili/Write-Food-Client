@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useTransition, animated } from "react-spring";
+import { animated } from "react-spring";
 import service from "../../../auth/service";
 import ArticleSearchForm from "../forms/ArticleSearchForm";
 import ArticleCard from "./ArticleCard";
 import queryBuilder from "./queryBuilder";
 import LoadingDots from "./LoadingDots";
 import magnifyingGlass from "../../../icons/magnifyingGlass.svg";
+import useSearchTransition from "../forms/UseSearchTransition";
 import "./homeFeed.css";
 
 const HomeFeed = () => {
@@ -16,6 +17,7 @@ const HomeFeed = () => {
   const [isSearchForm, setIsSearchForm] = useState(false);
   const [searchParams, setSearchParams] = useState("");
   const [moreAvailable, setMoreAvailable] = useState(true);
+  const searchTransition = useSearchTransition(isSearchForm);
 
   const handleSearchParamsChange = (newSearchParams) => {
     setSearchParams(() => newSearchParams);
@@ -47,12 +49,6 @@ const HomeFeed = () => {
     setIsLoading(false);
   };
 
-  const transition = useTransition(isSearchForm, {
-    from: { width: 0, height: 0, opacity: 0 },
-    enter: { width: 200, height: 230, opacity: 1 },
-    leave: { width: 0, height: 0, opacity: 0 },
-  });
-
   return (
     <>
       <div className="homeFeedHeader">
@@ -65,10 +61,11 @@ const HomeFeed = () => {
             className="magnifyingGlass"
           />
           <div>
-            {transition((style, articleSearchForm) =>
+            {searchTransition((style, articleSearchForm) =>
               articleSearchForm ? (
                 <animated.div className="articleSearchForm" style={style}>
                   <ArticleSearchForm
+                    isSearchForm={isSearchForm}
                     handleSearchParamsChange={handleSearchParamsChange}
                   />
                 </animated.div>

@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { useState } from "react";
-import Cross from "../../../global/Cross";
+import Cross from "../../../icons/Cross";
 import { fields, checkBoxes } from "./articleFields.js";
 import edit from "../../../icons/edit.svg";
 import Input from "./Input";

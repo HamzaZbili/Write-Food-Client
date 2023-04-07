@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import service from "../../auth/service";
 import Input from "./forms/Input";
 import "./addNewArticle.css";
-import BackButton from "../../global/BackButton";
+import BackButton from "../../icons/BackButton";
 import { fields, checkBoxes } from "./forms/articleFields.js";
 
 const AddNewArticle = () => {
@@ -33,9 +33,8 @@ const AddNewArticle = () => {
         data.append(key, formData[key]);
       }
       data.append("image", file);
-      const newArticle = await service
-        .post(`/articles/new`, data)
-        .then(navigate("/"));
+      await service.post(`/articles/new`, data);
+      navigate("/");
     } catch (error) {
       setError(error.response);
     }

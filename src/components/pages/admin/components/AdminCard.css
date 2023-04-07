@@ -15,7 +15,7 @@
 .imageAndAdminButtons {
   display: flex;
   flex-direction: column;
-  align-items: end;
+  align-items: flex-end;
   padding: 0.5rem;
 }
 

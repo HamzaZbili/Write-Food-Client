@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import AdminCard from "./components/AdminCard";
 import service from "../../auth/service";
-import BackButton from "../../global/BackButton";
+import BackButton from "../../icons/BackButton";
 import "./manageArticles.css";
 
 const ManageArticles = () => {

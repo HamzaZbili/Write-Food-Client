@@ -8,13 +8,7 @@ const HomePage = () => {
     <div className="homePage">
       <div className="homePageHeader">
         <article className="homePageTextContainer">
-          <Link to="/about" className="foodWriterEater">
-            <h4>food writer | eater</h4>
-          </Link>
-          <h1>
-            Rachel <br />
-            Naismith
-          </h1>
+          <h1>Rachel Naismith</h1>
           <p>Hey! Welcome to my portofolio website!</p>
         </article>
         <div></div>

@@ -55,22 +55,24 @@ const HomeFeed = () => {
   }
   return (
     <>
-      <h2 className="homeFeedTitle">lastest work</h2>
-      <div className="articleSearchFormContainer">
-        {searchPopUp ? (
-          <div>
-            <div onClick={togglePopUp}>close</div>
-            <div className="articleSearchForm">
-              <ArticleSearchForm
-                handleSearchParamsChange={handleSearchParamsChange}
-              />
+      <div className="homeFeedHeader">
+        <h2 className="homeFeedTitle">lastest work</h2>
+        <div>
+          {searchPopUp ? (
+            <div>
+              <div onClick={togglePopUp}>close</div>
+              <div className="articleSearchForm">
+                <ArticleSearchForm
+                  handleSearchParamsChange={handleSearchParamsChange}
+                />
+              </div>
             </div>
-          </div>
-        ) : (
-          <div onClick={togglePopUp}>
-            <img src={magnifyingGlass} alt="search" />
-          </div>
-        )}
+          ) : (
+            <div onClick={togglePopUp}>
+              <img src={magnifyingGlass} alt="search" />
+            </div>
+          )}
+        </div>
       </div>
 
       <div className="homeFeed">

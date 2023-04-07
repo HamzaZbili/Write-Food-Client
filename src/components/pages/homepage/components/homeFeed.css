@@ -13,6 +13,14 @@
   align-items: center;
 }
 
+.homeFeedHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px 0 40px;
+  width: 100vw;
+}
+
 .loadMoreButton {
   height: 2.5rem;
   margin: 2rem;
@@ -27,24 +35,13 @@
   color: rgba(38, 2, 255, 1);
 }
 
-.articleSearchFormContainer {
-  position: absolute;
-  top: 350px;
-  right: 20px;
-}
-
 .articleSearchForm {
   background-color: white;
-  padding: 5px;
+  padding: 20px;
+  border-radius: 10px;
   position: absolute;
-  top: 30px;
-  right: 10px;
-  z-index: 1;
-}
-
-.magnifyingGlassContainer {
+  right: 30px;
   z-index: 2;
-  background-color: red;
 }
 
 @media only screen and (max-width: 525px) {

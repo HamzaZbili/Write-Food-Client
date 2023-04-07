@@ -65,7 +65,6 @@ const HomeFeed = () => {
               articleSearchForm ? (
                 <animated.div className="articleSearchForm" style={style}>
                   <ArticleSearchForm
-                    isSearchForm={isSearchForm}
                     handleSearchParamsChange={handleSearchParamsChange}
                   />
                 </animated.div>

@@ -74,8 +74,8 @@ const ArticleForm = ({ handleSearchParamsChange }) => {
     <form onSubmit={handleSubmit}>
       <button onClick={clearForm}>reset</button>
       <TitleSearch handleSearchChange={handleSearchChange} />
-      <CategorySearch handleCategoryChange={handleCategoryChange} />
       <CitiesSearch handleCityChange={handleCityChange} />
+      <CategorySearch handleCategoryChange={handleCategoryChange} />
       <Order handleOrderChange={handleOrderChange} />
       <button type="submit">Search</button>
     </form>

@@ -16,6 +16,14 @@ const ArticleForm = ({ handleSearchParamsChange }) => {
   const [order, setOrder] = useState("");
   const [search, setSearch] = useState("");
 
+  // resets form - shows all results
+  function clearForm() {
+    setCategory({});
+    setCity("");
+    setOrder("");
+    setSearch("");
+  }
+
   // form change handlers
   const handleCategoryChange = (event) => {
     const cat = event.target.value;
@@ -64,10 +72,12 @@ const ArticleForm = ({ handleSearchParamsChange }) => {
 
   return (
     <form onSubmit={handleSubmit}>
+      <button onClick={clearForm}>reset</button>
+      <TitleSearch handleSearchChange={handleSearchChange} />
       <CategorySearch handleCategoryChange={handleCategoryChange} />
       <CitiesSearch handleCityChange={handleCityChange} />
       <Order handleOrderChange={handleOrderChange} />
-      <TitleSearch handleSearchChange={handleSearchChange} />
+      <button type="submit">Search</button>
     </form>
   );
 };

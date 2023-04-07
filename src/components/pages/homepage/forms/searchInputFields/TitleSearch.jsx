@@ -8,8 +8,6 @@ const TitleSearch = ({ handleSearchChange }) => {
         placeholder="search by title"
         onChange={handleSearchChange}
       />
-      <br />
-      <button type="submit">Search</button>
     </div>
   );
 };

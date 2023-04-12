@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import React from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import useAuth from "../auth/useAuth";
@@ -6,11 +6,11 @@ import "./navbar.css";
 
 function Navbar() {
   const { isLoggedIn, removeUser } = useAuth();
-  const navRef = useRef();
+  const navRef = React.useRef<HTMLElement | null>(null);
 
   function showNavbar() {
     setTimeout(() => {
-      navRef.current.classList.toggle("responsive_nav");
+      navRef.current?.classList.toggle("responsive_nav");
     }, 120);
   }
 

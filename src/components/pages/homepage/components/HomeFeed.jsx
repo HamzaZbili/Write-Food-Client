@@ -76,10 +76,10 @@ const HomeFeed = () => {
         </div>
       </div>
       <div className="homeFeed">
-        {allArticles?.map((article) => {
+        {allArticles.map((article) => {
           return <ArticleCard article={article} key={article._id} />;
         })}
-        {loadMore?.map((article) => {
+        {loadMore.map((article) => {
           return <ArticleCard article={article} key={article._id} />;
         })}
       </div>

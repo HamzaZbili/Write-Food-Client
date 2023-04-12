@@ -1,19 +1,18 @@
-import React, { useState } from "react";
-import { useCallback } from "react";
-import { useEffect } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import AdminCard from "./components/AdminCard";
 import service from "../../auth/service";
 import BackButton from "../../icons/BackButton";
 import "./manageArticles.css";
+import { Article } from "../../../../type-definitions";
 
-const ManageArticles = () => {
-  const [allArticles, setAllArticles] = useState([]);
+const ManageArticles: React.FC = () => {
+  const [allArticles, setAllArticles] = useState<Article[]>([]);
   const navigate = useNavigate();
 
   const updateListedArticles = useCallback(() => {
     try {
-      service.get("/articles/all").then((response) => {
+      service.get<Article[]>("/articles/all").then((response) => {
         setAllArticles(response.data);
       });
     } catch (error) {

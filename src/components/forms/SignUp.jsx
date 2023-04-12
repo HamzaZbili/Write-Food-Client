@@ -1,4 +1,4 @@
-import axios from "axios";
+// import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import service from "../auth/service";
@@ -15,7 +15,7 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const newUser = await service.signup(user);
+      await service.signup(user);
       navigate("/manage");
     } catch (error) {
       setError(error.response.message);

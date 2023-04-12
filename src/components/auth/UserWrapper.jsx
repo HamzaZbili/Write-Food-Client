@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import UserContext from "./userContext";
 import service from "./service";
 
@@ -9,7 +9,7 @@ const UserWrapper = ({ children }) => {
     isLoggedIn: false,
   });
 
-  const authenticateUser = useCallback(async () => {
+  const authenticateUser = async () => {
     const storedToken = localStorage.getItem("authToken");
     if (storedToken) {
       try {
@@ -21,25 +21,25 @@ const UserWrapper = ({ children }) => {
     } else {
       setAuth({ currentUser: null, isLoading: false, isLoggedIn: false });
     }
-  });
+  };
 
   useEffect(() => {
     authenticateUser();
   }, []);
 
   // the useCallback hook allow us to save (memoize) those functions so that they don't need to be created everytime we rerender
-  const removeUser = useCallback(() => {
+  const removeUser = () => {
     removeToken();
     authenticateUser();
-  });
+  };
 
-  const removeToken = useCallback(() => {
+  const removeToken = () => {
     localStorage.removeItem("authToken");
-  });
+  };
 
-  const storeToken = useCallback((token) => {
+  const storeToken = (token) => {
     localStorage.setItem("authToken", token);
-  });
+  };
 
   const authValues = {
     currentUser: auth.currentUser,

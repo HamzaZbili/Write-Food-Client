@@ -5,9 +5,12 @@ import Input from "./forms/Input";
 import "./addNewArticle.css";
 import BackButton from "../../icons/BackButton";
 import { fields, checkBoxes } from "./forms/articleFields.js";
+// import { FormState } from "./type-definitions";
 
 const AddNewArticle = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState
+  // <FormState>
+    ({
     title: "",
     city: "",
     publicationDate: "",
@@ -33,6 +36,7 @@ const AddNewArticle = () => {
         data.append(key, formData[key]);
       }
       data.append("image", file);
+      console.log(file);
       await service.post(`/articles/new`, data);
       navigate("/");
     } catch (error) {

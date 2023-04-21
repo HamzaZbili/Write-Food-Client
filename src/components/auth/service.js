@@ -2,7 +2,7 @@ import axios from "axios";
 
 const service = axios.create({
   // baseURL: "https://13.42.201.18:5000",
-  baseURL: "http://localhost:5000",
+  baseURL: "https://api.rachelnaismith.com",
   withCredentials: true,
 });
 

@@ -1,8 +1,7 @@
 import axios from "axios";
 
 const service = axios.create({
-  // baseURL: "https://13.42.201.18:5000",
-  baseURL: "d1cm20wsetlhgi.cloudfront.net",
+  baseURL: "https://d1cm20wsetlhgi.cloudfront.net",
   withCredentials: true,
 });
 

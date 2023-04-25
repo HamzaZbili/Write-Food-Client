@@ -15,7 +15,7 @@ const HomeFeed = () => {
   const [loadMore, setLoadMore] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isSearchForm, setIsSearchForm] = useState(false);
-  const [searchParams, setSearchParams] = useState("order=desc}");
+  const [searchParams, setSearchParams] = useState({ order: "desc" });
   const [moreAvailable, setMoreAvailable] = useState(true);
   const searchTransition = useSearchTransition(isSearchForm);
 

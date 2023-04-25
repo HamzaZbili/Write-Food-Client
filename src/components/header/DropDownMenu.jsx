@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from "react";
 import "./dropDownMenu.css";
-import { ReactComponent as DownArrow } from "../icons/downArrow.svg";
 import { Link } from "react-router-dom";
 
 const dropDownOptions = [

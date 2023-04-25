@@ -14,7 +14,7 @@ const ArticleForm = ({ handleSearchParamsChange }) => {
     seasonal: false,
   });
   const [city, setCity] = useState("");
-  const [order, setOrder] = useState("");
+  const [order, setOrder] = useState("desc");
   const [search, setSearch] = useState("");
 
   // resets form - shows all results

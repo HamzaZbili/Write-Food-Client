@@ -20,6 +20,9 @@ const HomeFeed = () => {
   const searchTransition = useSearchTransition(isSearchForm);
 
   const handleSearchParamsChange = (newSearchParams) => {
+    setAllArticles([]);
+    setLoadMore([]);
+    setAlreadyLoaded(8);
     setSearchParams(() => newSearchParams);
   };
   useEffect(() => {
@@ -30,7 +33,7 @@ const HomeFeed = () => {
       setAllArticles(response.data);
     }
     fetchData();
-  }, [searchParams]);
+  }, [searchParams, alreadyLoaded]);
 
   const handleClick = () => {
     setIsLoading(true);

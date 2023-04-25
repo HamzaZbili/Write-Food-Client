@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const service = axios.create({
-  baseURL: "https://d1cm20wsetlhgi.cloudfront.net",
+  baseURL: "http://localhost:5000",
+  // baseURL: "https://apidist.rachelnaismith.com",
   withCredentials: true,
 });
 

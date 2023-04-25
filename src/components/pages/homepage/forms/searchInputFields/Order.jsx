@@ -1,39 +1,28 @@
 import React from "react";
-import useSearchTransition from "../UseSearchTransition";
-import { animated } from "react-spring";
+import "../articleSearchForm.css";
 
-const Order = ({ handleOrderChange, isSearchForm }) => {
-  const searchTransition = useSearchTransition(isSearchForm);
-
+const Order = ({ handleOrderChange }) => {
   return (
-    <div>
-      {searchTransition((style, item) =>
-        item ? (
-          <animated.div className="item" style={style}>
-            <label>
-              <input
-                type="radio"
-                name="order"
-                value="asc"
-                onChange={handleOrderChange}
-              />
-              newest
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="order"
-                value="desc"
-                onChange={handleOrderChange}
-              />
-              oldest
-            </label>
-            <br />
-          </animated.div>
-        ) : (
-          ""
-        )
-      )}
+    <div className="orderInputContainer">
+      <label className="orderInputField">
+        <input
+          type="radio"
+          name="order"
+          value="desc"
+          onChange={handleOrderChange}
+        />
+        <div className="orderText">new</div>
+      </label>
+      <label className="orderInputField">
+        <input
+          type="radio"
+          name="order"
+          value="asc"
+          onChange={handleOrderChange}
+        />
+        <div className="orderText">old</div>
+      </label>
+      <br />
     </div>
   );
 };

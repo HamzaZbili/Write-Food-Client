@@ -1,0 +1,65 @@
+.resetAndSubmit {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 10px 0px 10px;
+}
+
+.resetButton {
+  background-color: white;
+  border: none;
+}
+
+.submitSearchButton {
+  background-color: rgb(55, 127, 233);
+  color: white;
+  padding: 5px;
+  border: none;
+  border-radius: 2px;
+}
+
+.titleSearchInput {
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.cityInputField {
+  background-color: rgb(113, 113, 113);
+  padding: 5px 0px 5px 5px;
+  margin-left: 80px;
+  margin-top: 5px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.categoryInputContainer {
+  padding: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.categoryInputField {
+  display: flex;
+  margin-bottom: 3px;
+}
+
+.categoryText {
+  padding: 4px 0px 0px 10px;
+}
+
+.orderInputContainer {
+  display: flex;
+  justify-content: space-around;
+}
+
+.orderInputField {
+  display: flex;
+}
+
+.orderText {
+  margin-left: 5px;
+}

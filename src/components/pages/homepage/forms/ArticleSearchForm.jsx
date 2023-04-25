@@ -3,6 +3,7 @@ import CategorySearch from "./searchInputFields/CategorySearch";
 import CitiesSearch from "./searchInputFields/CitiesSearch";
 import Order from "./searchInputFields/Order";
 import TitleSearch from "./searchInputFields/TitleSearch";
+import "./articleSearchForm.css";
 
 const ArticleForm = ({ handleSearchParamsChange }) => {
   const [category, setCategory] = useState({
@@ -72,12 +73,18 @@ const ArticleForm = ({ handleSearchParamsChange }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <button onClick={clearForm}>reset</button>
       <TitleSearch handleSearchChange={handleSearchChange} />
       <CitiesSearch handleCityChange={handleCityChange} />
       <CategorySearch handleCategoryChange={handleCategoryChange} />
       <Order handleOrderChange={handleOrderChange} />
-      <button type="submit">Search</button>
+      <div className="resetAndSubmit">
+        <button className="resetButton" onClick={clearForm}>
+          reset
+        </button>
+        <button className="submitSearchButton" type="submit">
+          search
+        </button>
+      </div>
     </form>
   );
 };

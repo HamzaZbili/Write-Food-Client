@@ -1,16 +1,29 @@
 import React from "react";
+import "../articleSearchForm.css";
+
+const cities = [
+  "",
+  "Paris",
+  "London",
+  "Edinburgh",
+  "Glasgow",
+  "Dublin",
+  "Brussels",
+];
 
 const CitiesSearch = ({ handleCityChange }) => {
   return (
     <div>
-      <select type="text" onChange={handleCityChange}>
-        <option value="">all cities</option>
-        <option value="Paris">Paris</option>
-        <option value="London">London</option>
-        <option value="Edinburgh">Edinburgh</option>
-        <option value="Glasgow">Glasgow</option>
-        <option value="Dublin">Dublin</option>
-        <option value="Brussels">Brussels</option>
+      <select
+        type="text"
+        onChange={handleCityChange}
+        className="cityInputField"
+      >
+        {cities.map((city) => {
+          return (
+            <option value={city}>{city !== "" ? city : "all cities"}</option>
+          );
+        })}
       </select>
     </div>
   );

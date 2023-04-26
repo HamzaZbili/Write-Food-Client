@@ -61,6 +61,7 @@ const ArticleForm = ({ handleSearchParamsChange }) => {
   };
 
   useEffect(() => {
+    // build query with debounce on form change
     const query = {};
     const timeoutId = setTimeout(() => {
       const selectedCategories = Object.keys(category).filter(
@@ -85,7 +86,7 @@ const ArticleForm = ({ handleSearchParamsChange }) => {
       handleSearchParamsChange(query);
     }, 1000);
     return () => clearTimeout(timeoutId);
-  }, [category, city, order, search]);
+  }, [category, city, order, search, handleSearchParamsChange]);
 
   return (
     <form onSubmit={handleSubmit} onKeyDown={handleKeyDown}>

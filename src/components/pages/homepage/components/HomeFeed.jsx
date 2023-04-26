@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { animated } from "react-spring";
 import service from "../../../auth/service";
 import ArticleSearchForm from "../forms/ArticleSearchForm";
@@ -19,12 +19,13 @@ const HomeFeed = () => {
   const [moreAvailable, setMoreAvailable] = useState(true);
   const searchTransition = useSearchTransition(isSearchForm);
 
-  const handleSearchParamsChange = (newSearchParams) => {
+  const handleSearchParamsChange = useCallback((newSearchParams) => {
     setAllArticles([]);
     setLoadMore([]);
     setAlreadyLoaded(8);
     setSearchParams(() => newSearchParams);
-  };
+  }, []);
+
   useEffect(() => {
     setMoreAvailable(true);
     const completeQuery = queryBuilder(searchParams);

@@ -15,9 +15,10 @@ const categoriesDefault = {
 
 const ArticleForm = ({ handleSearchParamsChange }) => {
   const [search, setSearch] = useState("");
-  const [city, setCity] = useState("all");
+  const [city, setCity] = useState("");
   const [category, setCategory] = useState(categoriesDefault);
   const [order, setOrder] = useState("desc");
+  const [initialLoad, setInitialLoad] = useState(true);
 
   // resets form - shows all results
   function clearForm(event) {
@@ -85,7 +86,12 @@ const ArticleForm = ({ handleSearchParamsChange }) => {
       if (search) {
         query.title = search;
       }
-      handleSearchParamsChange(query);
+      // ensures results are not rerendered on form open
+      if (!initialLoad) {
+        handleSearchParamsChange(query);
+      } else {
+        setInitialLoad(false);
+      }
     }, 500);
     return () => clearTimeout(timeoutId);
   }, [category, city, order, search, handleSearchParamsChange]);

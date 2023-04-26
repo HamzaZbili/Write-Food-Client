@@ -8,7 +8,6 @@ import LoadingDots from "./LoadingDots";
 import magnifyingGlass from "../../../icons/magnifyingGlass.svg";
 import useSearchTransition from "../../../../utils/UseSearchTransition";
 import "./homeFeed.css";
-// import useArticleCardTransition from "../../../../utils/UseArticleCardTransition";
 
 const HomeFeed = () => {
   const [allArticles, setAllArticles] = useState([]);
@@ -20,7 +19,6 @@ const HomeFeed = () => {
   const [searchParams, setSearchParams] = useState({ order: "desc" });
   const [moreAvailable, setMoreAvailable] = useState(true);
   const searchTransition = useSearchTransition(isSearchForm);
-  // const articleCardTransition = useArticleCardTransition();
 
   const handleSearchParamsChange = useCallback((newSearchParams) => {
     setAllArticles([]);
@@ -90,16 +88,15 @@ const HomeFeed = () => {
             className="magnifyingGlass"
           />
           <div>
-            {searchTransition((style, articleSearchForm) =>
-              articleSearchForm ? (
-                <animated.div className="articleSearchForm" style={style}>
-                  <ArticleSearchForm
-                    handleSearchParamsChange={handleSearchParamsChange}
-                  />
-                </animated.div>
-              ) : (
-                ""
-              )
+            {searchTransition(
+              (style, articleSearchForm) =>
+                articleSearchForm && (
+                  <animated.div className="articleSearchForm" style={style}>
+                    <ArticleSearchForm
+                      handleSearchParamsChange={handleSearchParamsChange}
+                    />
+                  </animated.div>
+                )
             )}
           </div>
         </div>

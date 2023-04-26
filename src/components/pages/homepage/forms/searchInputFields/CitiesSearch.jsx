@@ -19,9 +19,11 @@ const CitiesSearch = ({ handleCityChange }) => {
         onChange={handleCityChange}
         className="cityInputField"
       >
-        {cities.map((city) => {
+        {cities.map((city, index) => {
           return (
-            <option value={city}>{city !== "" ? city : "all cities"}</option>
+            <option key={index} value={city}>
+              {city !== "" ? city : "all cities"}
+            </option>
           );
         })}
       </select>

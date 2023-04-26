@@ -1,18 +1,8 @@
-.resetAndSubmit {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 10px 0px 10px;
-}
-
 .resetButton {
-  background-color: white;
-  border: none;
-}
-
-.submitSearchButton {
   background-color: rgb(55, 127, 233);
   color: white;
   padding: 5px;
+  margin-top: 10px;
   border: none;
   border-radius: 2px;
 }

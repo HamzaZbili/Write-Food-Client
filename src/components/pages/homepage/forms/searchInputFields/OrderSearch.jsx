@@ -1,7 +1,7 @@
 import React from "react";
 import "../articleSearchForm.css";
 
-const Order = ({ handleOrderChange }) => {
+const OrderSearch = ({ handleOrderChange }) => {
   return (
     <div className="orderInputContainer">
       <label className="orderInputField">
@@ -27,4 +27,4 @@ const Order = ({ handleOrderChange }) => {
   );
 };
 
-export default Order;
+export default OrderSearch;

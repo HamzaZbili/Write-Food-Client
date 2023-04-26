@@ -6,9 +6,9 @@ const categories = ["lifestyle", "guide", "review", "recipe", "seasonal"];
 const CategorySearch = ({ handleCategoryChange }) => {
   return (
     <div className="categoryInputContainer">
-      {categories.map((category) => {
+      {categories.map((category, index) => {
         return (
-          <label className="categoryInputField">
+          <label className="categoryInputField" key={index}>
             <input
               type="checkbox"
               name={category}

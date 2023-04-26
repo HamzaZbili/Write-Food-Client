@@ -21,7 +21,9 @@ const ArticleForm = ({ handleSearchParamsChange }) => {
 
   // resets form - shows all results
   function clearForm(event) {
-    event.preventDefault();
+    if (event) {
+      event.preventDefault();
+    }
     setSearch("");
     setCity("");
     setCategory(categoriesDefault);
@@ -90,10 +92,13 @@ const ArticleForm = ({ handleSearchParamsChange }) => {
 
   return (
     <form onSubmit={handleSubmit} onKeyDown={handleKeyDown}>
-      <TitleSearch handleSearchChange={handleSearchChange} />
-      <CitiesSearch handleCityChange={handleCityChange} />
-      <CategorySearch handleCategoryChange={handleCategoryChange} />
-      <OrderSearch handleOrderChange={handleOrderChange} />
+      <TitleSearch handleSearchChange={handleSearchChange} search={search} />
+      <CitiesSearch handleCityChange={handleCityChange} city={city} />
+      <CategorySearch
+        handleCategoryChange={handleCategoryChange}
+        category={category}
+      />
+      <OrderSearch handleOrderChange={handleOrderChange} order={order} />
       <button className="resetButton" onClick={clearForm}>
         reset
       </button>

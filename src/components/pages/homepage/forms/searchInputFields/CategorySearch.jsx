@@ -3,19 +3,20 @@ import "../articleSearchForm.css";
 
 const categories = ["lifestyle", "guide", "review", "recipe", "seasonal"];
 
-const CategorySearch = ({ handleCategoryChange }) => {
+const CategorySearch = ({ handleCategoryChange, category }) => {
   return (
     <div className="categoryInputContainer">
-      {categories.map((category, index) => {
+      {categories.map((cat, index) => {
         return (
           <label className="categoryInputField" key={index}>
             <input
               type="checkbox"
-              name={category}
-              value={category}
+              name={cat}
+              value={cat}
               onChange={(e) => handleCategoryChange(e)}
+              checked={category[cat]}
             />
-            <div className="categoryText">{category}</div>
+            <div className="categoryText">{cat}</div>
             <br />
           </label>
         );

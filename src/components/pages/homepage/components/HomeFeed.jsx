@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { animated } from "react-spring";
 import service from "../../../auth/service";
 import ArticleSearchForm from "../forms/ArticleSearchForm";
@@ -15,6 +15,7 @@ const HomeFeed = () => {
   const [loadMore, setLoadMore] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isSearchForm, setIsSearchForm] = useState(false);
+  const searchFormRef = useRef(null);
   const [searchParams, setSearchParams] = useState({ order: "desc" });
   const [moreAvailable, setMoreAvailable] = useState(true);
   const searchTransition = useSearchTransition(isSearchForm);
@@ -53,11 +54,33 @@ const HomeFeed = () => {
     setIsLoading(false);
   };
 
+  //  closes form if clicks outside
+  const handleClickOutside = useCallback((event) => {
+    if (
+      searchFormRef.current &&
+      !searchFormRef.current.contains(event.target)
+    ) {
+      setIsSearchForm(false);
+    }
+  }, []);
+
+  // event listeners outside of form
+  useEffect(() => {
+    if (isSearchForm) {
+      window.addEventListener("click", handleClickOutside);
+    } else {
+      window.removeEventListener("click", handleClickOutside);
+    }
+    return () => {
+      window.removeEventListener("click", handleClickOutside);
+    };
+  }, [isSearchForm, handleClickOutside]);
+
   return (
     <>
       <div className="homeFeedHeader">
         <h2 className="homeFeedTitle">lastest work</h2>
-        <div>
+        <div ref={searchFormRef}>
           <img
             src={magnifyingGlass}
             alt="search"

@@ -1,7 +1,7 @@
 import React from "react";
 import "../articleSearchForm.css";
 
-const OrderSearch = ({ handleOrderChange }) => {
+const OrderSearch = ({ handleOrderChange, order }) => {
   return (
     <div className="orderInputContainer">
       <label className="orderInputField">
@@ -9,6 +9,7 @@ const OrderSearch = ({ handleOrderChange }) => {
           type="radio"
           name="order"
           value="desc"
+          checked={order === "desc"}
           onChange={handleOrderChange}
         />
         <div className="orderText">new</div>
@@ -18,6 +19,7 @@ const OrderSearch = ({ handleOrderChange }) => {
           type="radio"
           name="order"
           value="asc"
+          checked={order === "asc"}
           onChange={handleOrderChange}
         />
         <div className="orderText">old</div>

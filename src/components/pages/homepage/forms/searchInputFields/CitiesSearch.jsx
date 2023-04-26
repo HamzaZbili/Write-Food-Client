@@ -11,13 +11,14 @@ const cities = [
   "Brussels",
 ];
 
-const CitiesSearch = ({ handleCityChange }) => {
+const CitiesSearch = ({ handleCityChange, city }) => {
   return (
     <div>
       <select
         type="text"
         onChange={handleCityChange}
         className="cityInputField"
+        value={city}
       >
         {cities.map((city, index) => {
           return (

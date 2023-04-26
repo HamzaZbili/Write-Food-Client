@@ -6,8 +6,9 @@ import ArticleCard from "./ArticleCard";
 import queryBuilder from "./queryBuilder";
 import LoadingDots from "./LoadingDots";
 import magnifyingGlass from "../../../icons/magnifyingGlass.svg";
-import useSearchTransition from "../forms/UseSearchTransition";
+import useSearchTransition from "../../../../utils/UseSearchTransition";
 import "./homeFeed.css";
+// import useArticleCardTransition from "../../../../utils/UseArticleCardTransition";
 
 const HomeFeed = () => {
   const [allArticles, setAllArticles] = useState([]);
@@ -19,6 +20,7 @@ const HomeFeed = () => {
   const [searchParams, setSearchParams] = useState({ order: "desc" });
   const [moreAvailable, setMoreAvailable] = useState(true);
   const searchTransition = useSearchTransition(isSearchForm);
+  // const articleCardTransition = useArticleCardTransition();
 
   const handleSearchParamsChange = useCallback((newSearchParams) => {
     setAllArticles([]);
@@ -37,7 +39,7 @@ const HomeFeed = () => {
     fetchData();
   }, [searchParams, alreadyLoaded]);
 
-  const handleClick = () => {
+  const handleLoadMore = () => {
     setIsLoading(true);
     const completeQuery = queryBuilder(searchParams);
     async function loadMoreResults() {
@@ -115,7 +117,7 @@ const HomeFeed = () => {
       ) : (
         <div>
           {moreAvailable ? (
-            <button className="loadMoreButton" onClick={handleClick}>
+            <button className="loadMoreButton" onClick={handleLoadMore}>
               more
             </button>
           ) : (

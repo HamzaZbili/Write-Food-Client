@@ -12,7 +12,7 @@ const OrderSearch = ({ handleOrderChange, order }) => {
           checked={order === "desc"}
           onChange={handleOrderChange}
         />
-        <div className="orderText">new</div>
+        <div className="orderText">newest</div>
       </label>
       <label className="orderInputField">
         <input
@@ -22,7 +22,7 @@ const OrderSearch = ({ handleOrderChange, order }) => {
           checked={order === "asc"}
           onChange={handleOrderChange}
         />
-        <div className="orderText">old</div>
+        <div className="orderText">oldest</div>
       </label>
       <br />
     </div>

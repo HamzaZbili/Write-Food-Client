@@ -2,7 +2,7 @@ import React from "react";
 import "../articleSearchForm.css";
 
 const cities = [
-  "",
+  "all",
   "Paris",
   "London",
   "Edinburgh",
@@ -23,7 +23,7 @@ const CitiesSearch = ({ handleCityChange, city }) => {
         {cities.map((city, index) => {
           return (
             <option key={index} value={city}>
-              {city !== "" ? city : "all cities"}
+              {city !== "all" ? city : "all cities"}
             </option>
           );
         })}

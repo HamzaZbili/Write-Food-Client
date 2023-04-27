@@ -6,7 +6,6 @@ import ArticleCard from "./ArticleCard";
 import queryBuilder from "./queryBuilder";
 import LoadingDots from "./LoadingDots";
 import magnifyingGlass from "../../../icons/magnifyingGlass.svg";
-import useSearchTransition from "../../../../utils/UseSearchTransition";
 import "./homeFeed.css";
 
 const HomeFeed = () => {
@@ -15,10 +14,10 @@ const HomeFeed = () => {
   const [loadMore, setLoadMore] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isSearchForm, setIsSearchForm] = useState(false);
+  const searchFormContainerRef = useRef(null);
   const searchFormRef = useRef(null);
   const [searchParams, setSearchParams] = useState({ order: "desc" });
   const [moreAvailable, setMoreAvailable] = useState(true);
-  const searchTransition = useSearchTransition(isSearchForm);
 
   const handleSearchParamsChange = useCallback((newSearchParams) => {
     setAllArticles([]);
@@ -54,17 +53,23 @@ const HomeFeed = () => {
     setIsLoading(false);
   };
 
+  function handleOpenSearchForm() {
+    setIsSearchForm(true);
+    searchFormRef.current.classList.toggle("hideArticleSearchForm");
+  }
+
   //  closes form if clicks outside
   const handleClickOutside = useCallback((event) => {
     if (
-      searchFormRef.current &&
-      !searchFormRef.current.contains(event.target)
+      searchFormContainerRef.current &&
+      !searchFormContainerRef.current.contains(event.target)
     ) {
       setIsSearchForm(false);
+      searchFormRef.current.classList.add("hideArticleSearchForm");
     }
   }, []);
 
-  // event listeners outside of form
+  // event listener for clicks outside of form
   useEffect(() => {
     if (isSearchForm) {
       window.addEventListener("click", handleClickOutside);
@@ -80,24 +85,20 @@ const HomeFeed = () => {
     <>
       <div className="homeFeedHeader">
         <h2 className="homeFeedTitle">lastest work</h2>
-        <div ref={searchFormRef}>
+        <div ref={searchFormContainerRef}>
           <img
             src={magnifyingGlass}
             alt="search"
-            onClick={() => setIsSearchForm((v) => !v)}
+            onClick={handleOpenSearchForm}
             className="magnifyingGlass"
           />
-          <div>
-            {searchTransition(
-              (style, articleSearchForm) =>
-                articleSearchForm && (
-                  <animated.div className="articleSearchForm" style={style}>
-                    <ArticleSearchForm
-                      handleSearchParamsChange={handleSearchParamsChange}
-                    />
-                  </animated.div>
-                )
-            )}
+          <div
+            ref={searchFormRef}
+            className="articleSearchForm hideArticleSearchForm"
+          >
+            <ArticleSearchForm
+              handleSearchParamsChange={handleSearchParamsChange}
+            />
           </div>
         </div>
       </div>

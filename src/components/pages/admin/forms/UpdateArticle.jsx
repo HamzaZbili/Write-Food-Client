@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { useState } from "react";
 import Cross from "../../../icons/Cross";
-import { fields, checkBoxes } from "./articleFields.js";
+import { fields, categoryCheckBoxes } from "./articleFields.js";
 import edit from "../../../icons/edit.svg";
 import Input from "./Input";
 import service from "../../../auth/service";
@@ -71,14 +71,14 @@ const UpdateArticle = ({ article, updateListedArticles }) => {
                   />
                 );
               })}
-              {checkBoxes.map((boxes, key) => {
+              {categoryCheckBoxes.map((box, key) => {
                 return (
                   <div key={key}>
                     <input
                       type="checkbox"
-                      name={boxes.fieldName}
+                      name={box}
                       formdata={formData}
-                      defaultChecked={article.category[boxes.fieldName]}
+                      defaultChecked={article.category[box]}
                       onChange={(e) =>
                         setFormData({
                           ...formData,
@@ -86,7 +86,7 @@ const UpdateArticle = ({ article, updateListedArticles }) => {
                         })
                       }
                     />
-                    <label htmlFor="scales">{boxes.label}</label>
+                    <label htmlFor="scales">{box}</label>
                   </div>
                 );
               })}

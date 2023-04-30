@@ -4,26 +4,27 @@ import service from "../../auth/service";
 import Input from "./forms/Input";
 import "./addNewArticle.css";
 import BackButton from "../../icons/BackButton";
-import { fields, checkBoxes } from "./forms/articleFields.js";
+import { fields, cities, categoryCheckBoxes } from "./forms/articleFields.js";
 // import { FormState } from "./type-definitions";
 
 const AddNewArticle = () => {
-  const [formData, setFormData] = useState
-  // <FormState>
-    ({
-    title: "",
-    city: "",
-    publicationDate: "",
-    publisher: "publisher",
-    other: "",
-    link: "",
-    // categories
-    lifestyle: false,
-    guide: false,
-    review: false,
-    recipe: false,
-    seasonal: false,
-  });
+  const [formData, setFormData] = useState(
+    // <FormState>
+    {
+      title: "",
+      city: "",
+      publicationDate: "",
+      publisher: "publisher",
+      other: "",
+      link: "",
+      // categories
+      lifestyle: false,
+      guide: false,
+      review: false,
+      recipe: false,
+      seasonal: false,
+    }
+  );
   const [file, setFile] = useState(null);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
@@ -63,12 +64,12 @@ const AddNewArticle = () => {
               />
             );
           })}
-          {checkBoxes.map((boxes, key) => {
+          {categoryCheckBoxes.map((box, key) => {
             return (
-              <div key={key}>
+              <label key={key}>
                 <input
                   type="checkbox"
-                  name={boxes.fieldName}
+                  name={box}
                   formdata={formData}
                   onChange={(e) =>
                     setFormData({
@@ -77,8 +78,8 @@ const AddNewArticle = () => {
                     })
                   }
                 />
-                <label htmlFor="scales">{boxes.label}</label>
-              </div>
+                {box}
+              </label>
             );
           })}
           <label htmlFor="publisher">Publisher</label>

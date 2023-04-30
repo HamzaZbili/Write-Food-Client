@@ -5,11 +5,6 @@ const fields = [
     type: "text",
   },
   {
-    label: "City",
-    fieldName: "city",
-    type: "text",
-  },
-  {
     label: "Publication date",
     fieldName: "publicationDate",
     type: "date",
@@ -21,27 +16,21 @@ const fields = [
   },
 ];
 
-const checkBoxes = [
-  {
-    label: "lifestyle",
-    fieldName: "lifestyle",
-  },
-  {
-    label: "guide",
-    fieldName: "guide",
-  },
-  {
-    label: "review",
-    fieldName: "review",
-  },
-  {
-    label: "recipe",
-    fieldName: "recipe",
-  },
-  {
-    label: "seasonal",
-    fieldName: "seasonal",
-  },
+const categoryCheckBoxes = [
+  "lifestyle",
+  "guide",
+  "review",
+  "recipe",
+  "seasonal",
 ];
 
-export { fields, checkBoxes };
+const cities = [
+  "London",
+  "Paris",
+  "Edinburgh",
+  "Glasgow",
+  "Dublin",
+  "Brussels",
+];
+
+export { fields, categoryCheckBoxes, cities };

@@ -44,6 +44,7 @@
   padding: 20px;
   border-radius: 15px;
   width: 215px;
+  height: 290px;
   position: absolute;
   box-shadow: 2px 2px 2px rgb(201, 220, 244);
   right: 30px;
@@ -53,9 +54,10 @@
 }
 
 .hideArticleSearchForm {
-  right: 0px;
-  width: 0px;
   opacity: 0;
+  width: 0px;
+  right: 0px;
+  overflow: hidden;
   transition: 0.3s;
 }
 
